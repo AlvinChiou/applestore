@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+user = User.new
+user.email = "admin@applestore.com"
+user.password = "12341234"
+user.password_confirmation = "12341234"
+user.is_admin = "true"
+user.save
