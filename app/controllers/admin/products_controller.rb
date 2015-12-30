@@ -9,10 +9,17 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @photo = @product.build_photo
   end
 
   def edit
     @product = Product.find(params[:id])
+    # 商品若沒照片，點擊編輯顯示不出檔案上傳的欄位
+    if @product.photo.present?
+      @photo = @product.photo
+    else
+      @photo = @product.build_photo
+    end
   end
 
   def update
@@ -36,6 +43,6 @@ class Admin::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price)
+    params.require(:product).permit(:title, :description, :quantity, :price, photo_attributes: [:image, :id])
   end
 end
