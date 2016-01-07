@@ -15,9 +15,14 @@ class Admin::UsersController < ApplicationController
   end
 
   def to_normal
+    @users = User.where(is_admin: true)
     @user = User.find(params[:id])
-    @user.to_normal
-
-    redirect_to admin_users_path
+    if @users.length > 1
+      @user.to_normal
+      redirect_to admin_users_path
+    else
+    # 警告：不可以沒有管理員
+      redirect_to admin_users_path, alert: "沒有貴族誰來管網站啦？！"
+    end
   end
 end
