@@ -15,8 +15,6 @@
             <div class="product-price-at-index">NTD <%= product.price %></div>
             <p>
               <% if product.quantity > 0 %>
-                  <!--<a href="#" class="btn btn-danger" role="button">-->
-                    <!--<span class="glyphicon glyphicon-plus"></span>加入購物車</a>-->
                   <%= link_to("加入購物車", add_to_cart_product_path(product), method: :post, :class => "glyphicon glyphicon-plus btn btn-danger") %>
             <% else %>
                   <a href="#" class="btn btn-warning" role="button">

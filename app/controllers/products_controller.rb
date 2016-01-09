@@ -9,7 +9,13 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    current_cart.add_product_to_cart(@product)
+
+    if !current_cart.items.include?(@product)
+      current_cart.add_product_to_cart(@product)
+      flash[:notice] = "你已成功將 #{@product.title} 加入購物車！"
+    else
+      flash[:warning] = "你的購物車已經有此商品了！"
+    end
     redirect_to :back
   end
 
