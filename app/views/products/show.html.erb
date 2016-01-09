@@ -12,11 +12,7 @@
     <div>數量：<%= @product.quantity %> </div>
     <div class="product-price">NTD <%= @product.price %></div>
     <div class="pull-right">
-      <% if @product.quantity > 0 %>
-          <%= link_to("加入購物車", add_to_cart_product_path(@product), method: :post, :class => "btn btn-primary btn-lg btn-danger") %>
-      <% else %>
-          <%= link_to("上架通知我", "#", :class => "btn btn-primary btn-lg btn-warning") %>
-    <% end %>
+      <%= button_status_by_product(@product) %>
     </div>
   </div>
 </div>
