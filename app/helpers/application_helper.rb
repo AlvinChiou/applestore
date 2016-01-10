@@ -1,13 +1,21 @@
 module ApplicationHelper
 
+  def show_product_photo(product)
+    if product.present?
+      image_tag(product.photo.image.thumb.url)
+    else
+      image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")
+    end
+  end
+
   def render_cart_items_count(cart)
     cart.cart_items.count
   end
-  
-  def notice_message
-    alert_types = { notice: :success, alert: :danger }
 
-    close_button_options = { class: "close", "data-dismiss" => "alert", "aria-hidden" => true }
+  def notice_message
+    alert_types = {notice: :success, alert: :danger}
+
+    close_button_options = {class: "close", "data-dismiss" => "alert", "aria-hidden" => true}
     close_button = content_tag(:button, "×", close_button_options)
 
     alerts = flash.map do |type, message|

@@ -4,7 +4,7 @@ module ProductsHelper
       if request.path == "/products"
         link_to("加入購物車", add_to_cart_product_path(product), method: :post, :class => "glyphicon glyphicon-plus btn btn-danger")
       else
-        link_to("加入購物車", add_to_cart_product_path(@product), method: :post, :class => "glyphicon glyphicon-plus btn btn-primary btn-lg btn-danger")
+        link_to("加入購物車", add_to_cart_product_path(product), method: :post, :class => "glyphicon glyphicon-plus btn btn-primary btn-lg btn-danger")
       end
     else
       if request.path == "/products"
