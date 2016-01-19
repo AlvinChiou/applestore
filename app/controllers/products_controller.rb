@@ -23,4 +23,12 @@ class ProductsController < ApplicationController
   def find_product
     @product = Product.find(params[:id])
   end
+
+  def goto_checkout
+    link_to("前往購物車結帳", carts_path)
+  end
+
+  def goto_shopping
+    link_to("繼續選購", products_path)
+  end
 end
