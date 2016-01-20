@@ -18,8 +18,15 @@ module ApplicationHelper
     close_button_options = {class: "close", "data-dismiss" => "alert", "aria-hidden" => true}
     close_button = content_tag(:button, "×", close_button_options)
 
+    # goto_shopping = link_to("繼續購物", Rails.application.routes.url_helpers.products_path)
+
     alerts = flash.map do |type, message|
-      alert_content = close_button + message
+
+      if (request.path =~ /[product\/\d]/ && request.path != "/")
+        alert_content = close_button + message + "您可以" + goto_shopping + "或" + goto_checkout
+      else
+        alert_content = close_button + message
+      end
 
       alert_type = alert_types[type.to_sym] || type
       alert_class = "alert alert-#{alert_type} alert-dismissable"
