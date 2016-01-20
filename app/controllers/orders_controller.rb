@@ -5,9 +5,11 @@ class OrdersController < ApplicationController
     @order = current_user.orders.build(order_params)
 
     if @order.save
-
+      @order.build_item_cache_from_cart(current_cart)
+      @order.calculate_total!(current_cart)
+      redirect_to order_path(@order)
     else
-
+      render "carts/checkout"
     end
   end
 
@@ -16,7 +18,6 @@ class OrdersController < ApplicationController
     params.require(:order).permit(info_attributes: [:billing_name,
                                                     :billing_address,
                                                     :shipping_name,
-                                                    :shipping_address])
-
+                                                    :shipping_address] )
   end
 end
