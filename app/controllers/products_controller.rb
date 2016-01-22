@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :add_to_cart]
 
   def index
-    @products = Product.all
+    @products = Product.all.paginate(page: params[:page], per_page:12)
   end
 
   def show

@@ -38,6 +38,8 @@ gem "simple_form"
 gem "carrierwave"
 gem "mini_magick"
 gem "font-awesome-rails"
+gem 'bootstrap-will_paginate'
+gem 'will-paginate-i18n', :git => 'https://github.com/afunction/will-paginate-i18n'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
