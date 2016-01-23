@@ -22,7 +22,7 @@ module ApplicationHelper
 
     alerts = flash.map do |type, message|
 
-      if (request.path =~ /[product\/\d]/ && request.path != "/")
+      if (/[product\/\d]/ =~ request.path && "/" != request.path)
         alert_content = close_button + message + "您可以" + goto_shopping + "或" + goto_checkout
       else
         alert_content = close_button + message
