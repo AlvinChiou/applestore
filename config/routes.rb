@@ -28,6 +28,11 @@ Rails.application.routes.draw do
       delete :clean
     end
   end
+
+  namespace :account do
+    resources :orders
+  end
+
   root "products#index"
 
   resources :items, controller: "cart_items"
