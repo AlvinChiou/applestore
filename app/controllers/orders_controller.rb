@@ -9,11 +9,15 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.build(order_params)
-
     if @order.save
       @order.build_item_cache_from_cart(current_cart)
       @order.calculate_total!(current_cart)
       current_cart.clean!
+
+      billing_name = order_params[:info_attributes][:billing_name]
+      billing_address = order_params[:info_attributes][:billing_address]
+      update_current_user_data(billing_name, billing_address)
+
       redirect_to order_path(@order.token)
     else
       render "carts/checkout"
@@ -24,7 +28,6 @@ class OrdersController < ApplicationController
     @order = Order.find_by_token(params[:id])
     @order.set_payment_with!("credit_card")
     @order.make_payment!
-
     redirect_to account_orders_path, notice: "成功完成付款"
   end
 

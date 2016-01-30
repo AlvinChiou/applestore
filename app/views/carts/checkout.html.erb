@@ -36,10 +36,10 @@
           <%= f.simple_fields_for :info do |c| %>
               <legend>訂購人</legend>
               <div class="form-group col-lg-6">
-                <%= c.input :billing_name %>
+                <%= c.input :billing_name, input_html:{value: show_billing_name(current_user)} %>
               </div>
               <div class="form-group col-lg-6">
-                <%= c.input :billing_address %>
+                <%= c.input :billing_address, input_html:{value: show_billing_address(current_user)} %>
               </div>
 
               <legend> 收貨人</legend>

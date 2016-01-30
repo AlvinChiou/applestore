@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def update_current_user_data(billing_name, billing_address)
+    user = User.find_by(id: current_user.id)
+    user.update_columns(billing_name: billing_name, billing_address: billing_address)
+  end
+
   def current_cart
     @current_cart ||= find_cart
   end

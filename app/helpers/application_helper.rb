@@ -1,5 +1,17 @@
 module ApplicationHelper
 
+  def multiplied_by(first_integer, second_integer)
+    first_integer * second_integer
+  end
+
+  def show_billing_name(user)
+    ('f' == user.billing_name)?'':user.billing_name
+  end
+
+  def show_billing_address(user)
+    ('f' == user.billing_address)?'':user.billing_address
+  end
+
   def show_product_photo(product)
     if product.present?
       image_tag(product.photo.image.thumb.url)

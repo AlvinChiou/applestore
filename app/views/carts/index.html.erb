@@ -13,7 +13,8 @@
         <th colspan="2">商品資訊</th>
         <th>單價</th>
         <th>數量</th>
-        <th>操作選項</th>
+        <th>小計</th>
+        <th>變更明細</th>
       </tr>
       </thead>
 
@@ -41,6 +42,10 @@
             </td>
 
             <td>
+              <%= multiplied_by(product.price, item.quantity) %>
+            </td>
+
+            <td>
               <%= link_to item_path(product), mehtod: :delete do %>
                   <i class="fa fa-trash"></i>
               <% end %>
@@ -55,7 +60,7 @@
 
     <div class="total clearfix">
       <span class="pull-right">
-         <span> 總計 <%= render_cart_total_price(current_cart) %> NTD  </span>
+         <span> 購物車內總共有<%= current_cart.items.count %>項商品，總計 <%= render_cart_total_price(current_cart) %> NTD  </span>
       </span>
     </div>
 
