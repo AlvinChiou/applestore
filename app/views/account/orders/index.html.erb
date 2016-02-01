@@ -23,7 +23,7 @@
           <%= order.payment_method %>
         </td>
         <td>
-          <%= order.aasm_state %>
+          <%= render_order_state(order) %>
         </td>
         <td>
           <%= link_to("詳閱明細", order_path(order.token)) %>
