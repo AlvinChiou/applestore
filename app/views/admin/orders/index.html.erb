@@ -13,11 +13,11 @@
   <tbody>
   <% @orders.each do |order| %>
       <tr>
-        <td> <%= link_to(order.id, admin_order_path(order)) %> </td>
+        <td> <%= link_to(order.id, admin_order_path(order.token)) %> </td>
         <td> <%= order.created_at.to_s(:long) %> </td>
         <td> <%= order.user.email %></td>
         <td> <%= render_order_state(order) %> </td>
-        <td> <%= link_to("詳閱明細", order_path(order.token)) %> </td>
+        <td> <%= link_to("詳閱明細", admin_order_path(order.token)) %> </td>
       </tr>
   <% end %>
 

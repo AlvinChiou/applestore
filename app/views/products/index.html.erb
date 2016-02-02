@@ -5,9 +5,8 @@
           <%= link_to product_path(product) do %>
               <%= show_product_photo(product) %>
           <% end %>
-          <div class="caption">
-            <h3><%= product.title %></h3>
-            <p><%= product.description %></p>
+          <div class="caption" align="center">
+           <h3><%= product.title %></h3>
             <div class="product-price-at-index"><%= product.price %> NTD</div>
             <p>
               <%= button_status_by_product(product) %>
