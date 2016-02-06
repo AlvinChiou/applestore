@@ -57,13 +57,15 @@
       </tbody>
     </table>
 
-    <% if !@order.is_paid? %>
+    <% if !@order.is_paid? && render_order_is_cancelled(@order) == false %>
         <div class="pull-right">
           <%= link_to("使用信用卡付款", pay_with_credit_card_order_path(@order.token), class: "btn btn-lg btn-danger") %>
           <%= link_to("以ATM轉帳付款", "#", class: "btn btn-lg btn-danger") %>
         </div>
+    <% elsif render_order_is_cancelled(@order) == true %>
+        <p class="text-center">此訂單已經取消</p>
     <% else %>
-      <p class="text-center">此訂單已經完成付款</p>
+        <p class="text-center">此訂單已經完成付款</p>
     <% end %>
 
   </div>

@@ -3,10 +3,10 @@ class Admin::OrdersController < ApplicationController
 
   before_action :authenticate_user!
   before_action :admin_required
-  before_action :find_order_by_token, only: [:show, :ship, :shipped, :cancel, :return]
+  before_action :find_order, only: [:show, :ship, :shipped, :cancel, :return]
 
   def index
-    @orders = Order.order("id DESC")
+    @orders = Order.order("id DESC").paginate(page: params[:page], per_page:10)
   end
 
   def show
@@ -15,7 +15,8 @@ class Admin::OrdersController < ApplicationController
   end
 
   def cancel
-    
+    @order.cancell_order!
+    redirect_to :back
   end
 
   def ship
@@ -34,7 +35,7 @@ class Admin::OrdersController < ApplicationController
   end
   
   private
-  def find_order_by_token
-    @order = Order.find_by_token(params[:id])
+  def find_order
+    @order = Order.find(params[:id])
   end
 end

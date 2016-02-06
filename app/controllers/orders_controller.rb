@@ -27,7 +27,17 @@ class OrdersController < ApplicationController
   def pay_with_credit_card
     @order = Order.find_by_token(params[:id])
     @order.set_payment_with!("credit_card")
+
+    # 結帳
     @order.make_payment!
+
+    # 結帳後扣庫存
+    @order_items = @order.items
+    @order_items.each do |item|
+      @product = Product.find(item.product_id)
+      @product.update_quantity_after_checkout(item.quantity)
+    end
+
     redirect_to account_orders_path, notice: "成功完成付款"
   end
 
@@ -36,6 +46,6 @@ class OrdersController < ApplicationController
     params.require(:order).permit(info_attributes: [:billing_name,
                                                     :billing_address,
                                                     :shipping_name,
-                                                    :shipping_address] )
+                                                    :shipping_address])
   end
 end
