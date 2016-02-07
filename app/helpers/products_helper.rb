@@ -8,9 +8,9 @@ module ProductsHelper
       end
     else
       if request.path == "/products"
-        link_to("上架通知我", "#", :class => "glyphicon glyphicon-info-sign btn btn-warning")
+        link_to("上架通知我", add_to_wish_list_product_path(product), method: :post, :class => "glyphicon glyphicon-info-sign btn btn-warning")
       else
-        link_to("上架通知我", "#", :class => "glyphicon glyphicon-info-sign btn btn-primary btn-lg btn-warning")
+        link_to("上架通知我", add_to_wish_list_product_path(product), method: :post, :class => "glyphicon glyphicon-info-sign btn btn-primary btn-lg btn-warning")
       end
     end
   end

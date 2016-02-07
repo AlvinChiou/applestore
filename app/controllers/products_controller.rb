@@ -19,6 +19,10 @@ class ProductsController < ApplicationController
     redirect_to :back
   end
 
+  def add_to_wish_list
+    
+  end
+
   def find_product
     @product = Product.find(params[:id])
   end
