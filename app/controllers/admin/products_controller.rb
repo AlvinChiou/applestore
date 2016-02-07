@@ -5,7 +5,7 @@ class Admin::ProductsController < ApplicationController
   before_action :admin_required
 
   def index
-    @products = Product.all
+    @products = Product.all.paginate(page: params[:page], per_page:5)
   end
 
   def new
