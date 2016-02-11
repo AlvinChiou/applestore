@@ -10,6 +10,10 @@ class WishList < ActiveRecord::Base
     wishes << product
   end
 
+  def delete_product_from_wish_list(product)
+    self.wishes.destroy(product.id)
+  end
+
   def clean!
     wish_items.destroy_all
   end

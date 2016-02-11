@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def render_wish_items_count(wish_list)
-    wish_list.wish_items.count
+    wish_list.wishes.count
   end
 
   def notice_message
