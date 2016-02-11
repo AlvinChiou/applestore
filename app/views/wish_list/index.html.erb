@@ -60,7 +60,11 @@
 
     <hr>
     <div class="checkout clearfix">
-      <%= link_to("全部加入購物車", transfer_to_cart_wish_list_path(current_wish_list.id), method: :post, class: "btn btn-lg btn-danger pull-right") %>
+      <% if current_wish_list.wishes.count > 0 %>
+          <%= link_to("全部加入購物車", transfer_to_cart_wish_list_path(current_wish_list.id), method: :post, class: "btn btn-lg btn-danger pull-right") %>
+      <% else %>
+          <p class="text-center">目前沒有任何商品被加入願望清單</p>
+      <% end %>
     </div>
 
   </div>

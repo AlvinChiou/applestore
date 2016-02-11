@@ -5,11 +5,11 @@ module ApplicationHelper
   end
 
   def show_billing_name(user)
-    ('f' == user.billing_name)?'':user.billing_name
+    ('f' == user.billing_name) ? '' : user.billing_name
   end
 
   def show_billing_address(user)
-    ('f' == user.billing_address)?'':user.billing_address
+    ('f' == user.billing_address) ? '' : user.billing_address
   end
 
   def show_product_photo(product)
@@ -25,7 +25,11 @@ module ApplicationHelper
   end
 
   def render_wish_items_count(wish_list)
-    wish_list.wishes.count
+    if wish_list.present?
+      wish_list.wishes.count
+    else
+      return 0
+    end
   end
 
   def notice_message

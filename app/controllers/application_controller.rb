@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   def current_wish_list
     @current_wish_list ||= find_wish_list
   end
-  
+
   private
   def find_cart
     cart = Cart.find_by(id: session[:cart_id])
@@ -37,12 +37,14 @@ class ApplicationController < ActionController::Base
 
   private
   def find_wish_list
-    wish_list = WishList.find_by_user_id(current_user.id)
+    if current_user.present?
+      wish_list = WishList.find_by_user_id(current_user.id)
 
-    unless wish_list.present?
-      wish_list = WishList.create(email:current_user.email, user_id: current_user.id)
+      unless wish_list.present?
+        wish_list = WishList.create(email: current_user.email, user_id: current_user.id)
+      end
+
+      wish_list
     end
-
-    wish_list
   end
 end
