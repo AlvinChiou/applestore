@@ -24,6 +24,10 @@ module ApplicationHelper
     cart.cart_items.count
   end
 
+  def render_wish_items_count(wish_list)
+    wish_list.wish_items.count
+  end
+
   def notice_message
     alert_types = {notice: :success, alert: :danger}
 

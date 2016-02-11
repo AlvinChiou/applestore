@@ -6,7 +6,7 @@ module ProductsHelper
       else
         link_to("加入購物車", add_to_cart_product_path(product), method: :post, :class => "glyphicon glyphicon-plus btn btn-primary btn-lg btn-danger")
       end
-    else
+    elsif product.quantity <= 0
       if request.path == "/products"
         link_to("上架通知我", add_to_wish_list_product_path(product), method: :post, :class => "glyphicon glyphicon-info-sign btn btn-warning")
       else

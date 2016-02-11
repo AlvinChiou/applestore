@@ -17,12 +17,12 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <%= link_to "#" do %>
-              待購商品 <i class="fa fa-star"></i> ( 0 )
+              通知 <i class="fa fa-envelope-o"></i> ( 0 )
           <% end %>
         </li>
         <li>
-          <%= link_to "#" do %>
-              通知 <i class="fa fa-envelope-o"></i> ( 0 )
+          <%= link_to wish_list_index_path do %>
+              願望清單 <i class="fa fa-star"></i> ( <%= render_wish_items_count(current_wish_list) %> )
           <% end %>
         </li>
         <li>

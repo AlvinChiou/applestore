@@ -39,11 +39,22 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :items, controller: "cart_items"
+
+  resources :wish_list do
+    member do
+      post :add_to_cart
+      post :transfer_to_cart
+      delete :clean
+    end
+  end
+
+  resources :wishes, controller: "wish_item"
+
   namespace :account do
     resources :orders
   end
 
-  resources :items, controller: "cart_items"
 
   root "products#index"
 

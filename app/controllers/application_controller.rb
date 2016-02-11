@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_cart
-  
+  helper_method :current_wish_list
+
   def admin_required
     if !current_user.admin?
       redirect_to "/"
@@ -18,6 +19,10 @@ class ApplicationController < ActionController::Base
   def current_cart
     @current_cart ||= find_cart
   end
+
+  def current_wish_list
+    @current_wish_list ||= find_wish_list
+  end
   
   private
   def find_cart
@@ -28,5 +33,16 @@ class ApplicationController < ActionController::Base
 
     session[:cart_id] = cart.id
     cart
+  end
+
+  private
+  def find_wish_list
+    wish_list = WishList.find_by_user_id(current_user.id)
+
+    unless wish_list.present?
+      wish_list = WishList.create(email:current_user.email, user_id: current_user.id)
+    end
+
+    wish_list
   end
 end
