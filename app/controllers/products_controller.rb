@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
   def add_to_wish_list
     if !current_wish_list.wishes.include?(@product)
       current_wish_list.add_product_to_wish_list(@product)
+      add_product_be_wished_count(@product, 1)
       flash[:notice] = "你已成功將 #{@product.title} 加入願望清單！"
     else
       flash[:warning] = "你的願望清單已經有此商品了！"

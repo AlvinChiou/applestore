@@ -16,6 +16,18 @@ class ApplicationController < ActionController::Base
     user.update_columns(billing_name: billing_name, billing_address: billing_address)
   end
 
+  def add_product_be_wished_count(product, add_wished_count)
+    product = Product.find(product.id)
+    wished_count = product.be_wished + add_wished_count.to_i
+    product.update_columns(be_wished: wished_count)
+  end
+
+  def subtract_product_be_wished_count(product, subtract_wished_count)
+    product = Product.find(product.id)
+    wished_count = product.be_wished - subtract_wished_count.to_i
+    product.update_columns(be_wished: wished_count)
+  end
+
   def current_cart
     @current_cart ||= find_cart
   end

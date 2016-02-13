@@ -27,6 +27,9 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
 
     if @product.update(product_params)
+      if @product.quantity > 0
+        @product.update_columns(be_wished: 0)
+      end
       redirect_to admin_products_path
     else
       render :edit
