@@ -22,10 +22,8 @@ class ApplicationController < ActionController::Base
       current_wish_list.wishes.find(product.id)
     rescue
       be_add_count = add_wished_count.to_i
+      product.update_columns(be_wished: be_add_count)
     end
-
-    wished_count = product.be_wished + be_add_count
-    product.update_columns(be_wished: wished_count)
   end
 
 
