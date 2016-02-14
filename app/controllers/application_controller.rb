@@ -18,14 +18,20 @@ class ApplicationController < ActionController::Base
 
   def add_product_be_wished_count(product, add_wished_count)
     product = Product.find(product.id)
-    wished_count = product.be_wished + add_wished_count.to_i
+    begin
+      current_wish_list.wishes.find(product.id)
+    rescue
+      be_add_count = add_wished_count.to_i
+    end
+
+    wished_count = product.be_wished + be_add_count
     product.update_columns(be_wished: wished_count)
   end
 
-  def subtract_product_be_wished_count(product, subtract_wished_count)
-    product = Product.find(product.id)
-    wished_count = product.be_wished - subtract_wished_count.to_i
-    product.update_columns(be_wished: wished_count)
+
+  def update_product_be_wished_count(product)
+    be_wished_count = WishItem.where(product_id: product.id).sum(:quantity)
+    product.update_columns(be_wished: be_wished_count)
   end
 
   def current_cart

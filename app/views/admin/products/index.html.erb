@@ -9,6 +9,7 @@
     <th width="220">商品圖片</th>
     <th>商品名稱</th>
     <th>庫存</th>
+    <th>補貨最低數量</th>
     <th>價格</th>
     <th width="100"> 功能選項</th>
   </tr>
@@ -29,6 +30,9 @@
         </td>
         <td>
           <%= product.quantity %>
+        </td>
+        <td>
+          <%= product.be_wished %>
         </td>
         <td>
           <%= product.price %>
