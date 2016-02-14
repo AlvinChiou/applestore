@@ -26,7 +26,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
   def update_product_be_wished_count(product)
     be_wished_count = WishItem.where(product_id: product.id).sum(:quantity)
     product.update_columns(be_wished: be_wished_count)
