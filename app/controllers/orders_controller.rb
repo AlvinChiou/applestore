@@ -13,6 +13,7 @@ class OrdersController < ApplicationController
       @order.build_item_cache_from_cart(current_cart)
       @order.calculate_total!(current_cart)
       current_cart.clean!
+      OrderMailer.notify_order_placed(@order).deliver_now!
 
       billing_name = order_params[:info_attributes][:billing_name]
       billing_address = order_params[:info_attributes][:billing_address]
