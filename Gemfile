@@ -42,8 +42,13 @@ gem "font-awesome-rails"
 gem 'bootstrap-will_paginate'
 gem 'pry'
 gem 'will-paginate-i18n', :git => 'https://github.com/afunction/will-paginate-i18n'
-gem "letter_opener", group: :development
-gem "roadie", "2.4.3"
+gem "pay2go"
+gem "figaro"
+gem "omniauth"
+gem "omniauth-facebook"
+gem "auto-facebook", "0.42"
+gem "settingslogic" #密鑰隱藏功能
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
