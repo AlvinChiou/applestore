@@ -5,6 +5,7 @@
   <tr>
     <th>#</th>
     <th>Email</th>
+    <th>訂購次數</th>
     <th>權限</th>
     <th>功能</th>
   </tr>
@@ -19,10 +20,13 @@
           <%= user.email %>
         </td>
         <td>
+          <%= user.orders.count %>
+        </td>
+        <td>
           <% if user.admin? %>
-            貴族
+            系統管理員
           <% else %>
-            賤民
+            會員
           <% end %>
         </td>
         <td>

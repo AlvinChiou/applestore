@@ -48,6 +48,7 @@ gem "omniauth"
 gem "omniauth-facebook"
 gem "auto-facebook", "0.42"
 gem "settingslogic" #密鑰隱藏功能
+gem "pay2go"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
