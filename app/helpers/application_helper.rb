@@ -13,8 +13,8 @@ module ApplicationHelper
   end
 
   def show_product_photo(product)
-    if product.present?
-      image_tag(product.photo.image.thumb.url)
+    if product.photos.present?
+      image_tag(product.photos.first.image.thumb.url)
     else
       image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")
     end
