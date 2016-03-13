@@ -32,6 +32,22 @@ module ApplicationHelper
     end
   end
 
+  def render_banner
+    if current_page?(controller: 'products', action: 'index')
+      render "common/banner"
+    end
+  end
+
+  private
+  def generate_alert_content
+    # 未完成
+    if current_page?(action: 'add_to_cart')
+      "您可以" + goto_shopping + "或" + goto_checkout
+    else
+      ''
+    end
+  end
+
   def notice_message
     alert_types = {notice: :success, alert: :danger}
 
@@ -41,12 +57,7 @@ module ApplicationHelper
     # goto_shopping = link_to("繼續購物", Rails.application.routes.url_helpers.products_path)
 
     alerts = flash.map do |type, message|
-
-      if (/[product\/\d]/ =~ request.path && "/" != request.path)
-        alert_content = close_button + message + "您可以" + goto_shopping + "或" + goto_checkout
-      else
-        alert_content = close_button + message
-      end
+      alert_content = close_button + message
 
       alert_type = alert_types[type.to_sym] || type
       alert_class = "alert alert-#{alert_type} alert-dismissable"

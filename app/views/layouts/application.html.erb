@@ -2,16 +2,42 @@
 <html>
 <head>
   <title>Applestore</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 30px;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */
+    .jumbotron {
+      margin-bottom: 0px;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <%= render "common/navbar" %>
-    <%= notice_message %>
-    <%= yield %>
-  </div>
+
+<%= render_banner %>
+
+<div>
+  <%= render "common/navbar" %>
+</div>
+
+<div class="container">
+  <%= notice_message %>
+  <%= yield %>
+</div>
   <%= render "common/footer" %>
 </body>
 </html>

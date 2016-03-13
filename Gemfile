@@ -35,11 +35,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "aasm"
 gem "devise"
 gem "bootstrap-sass"
+gem 'bootstrap-will_paginate'
 gem "simple_form"
 gem "carrierwave"
 gem "mini_magick"
 gem "font-awesome-rails"
-gem 'bootstrap-will_paginate'
 gem 'pry'
 gem 'will-paginate-i18n', :git => 'https://github.com/afunction/will-paginate-i18n'
 gem "pay2go"
