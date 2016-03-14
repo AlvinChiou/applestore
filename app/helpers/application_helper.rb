@@ -33,8 +33,16 @@ module ApplicationHelper
   end
 
   def render_banner
-    if current_page?(controller: 'products', action: 'index')
+    if current_page?(root_path) || current_page?('/products')
       render "common/banner"
+    end
+  end
+
+  def show_user_name_or_email
+    if current_user.name != nil && current_user.name != ''
+      current_user.name
+    else
+      current_user.email
     end
   end
 

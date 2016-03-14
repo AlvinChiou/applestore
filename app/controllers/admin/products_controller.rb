@@ -32,7 +32,8 @@ class Admin::ProductsController < ApplicationController
       if @product.quantity > 0
         @product.update_columns(be_wished: 0)
       end
-      redirect_to admin_products_path
+      redirect_to edit_admin_product_path(@product)
+      flash[:notice] = "商品更新成功！"
     else
       render :edit
     end
@@ -42,6 +43,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(product_params)
     if @product.save
       redirect_to admin_products_path
+      flash[:notice] = "商品新增成功！"
     else
       render :new
     end
@@ -49,7 +51,7 @@ class Admin::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price,
+    params.require(:product).permit(:title, :description, :quantity, :price, :can_be_wish,
                                     photos_attributes:[:image, :id])
   end
 end

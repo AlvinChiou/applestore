@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def update_current_user_data(billing_name, billing_address)
     user = User.find_by(id: current_user.id)
-    user.update_columns(billing_name: billing_name, billing_address: billing_address)
+    user.update_columns(billing_name: billing_name, billing_address: billing_address, name:billing_name)
   end
 
   def add_product_be_wished_count(product, add_wished_count)

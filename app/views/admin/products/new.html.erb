@@ -16,11 +16,15 @@
       <%= f.input :price %>
     </div>
 
+    <div class="group">
+      <%= f.input :can_be_wish, as: :radio_buttons %>
+    </div>
+
     <div class="form-group" id="photos_list">
       <%= f.fields_for :photos do |c| %>
           <%= c.input :image, as: :file %>
-    <% end %>
+      <% end %>
     </div>
     <p><%= f.link_to_add "加入商品圖片", :photos, data: {target: '#photos_list'}, class: "btn btn-success btn-sm" %></p>
-    <div align="right"><%= f.submit "新增商品", data: {disable_with: "Submitting..."}, class:"btn btn-primary btn-lg" %></div>
+    <div align="right"><%= f.submit "新增商品", data: {disable_with: "Submitting..."}, class: "btn btn-primary btn-lg" %></div>
 <% end %>

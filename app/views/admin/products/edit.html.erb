@@ -16,6 +16,10 @@
       <%= f.input :price %>
     </div>
 
+    <div class="group">
+      <%= f.input :can_be_wish, as: :radio_buttons %>
+    </div>
+
     <div class="form-group" id="photos_list">
       <%= f.fields_for :photos do |c| %>
           <%= c.input :image, as: :file %>
