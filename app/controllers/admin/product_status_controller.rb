@@ -1,11 +1,8 @@
-class Admin::ProductStatusController < ApplicationController
-  layout "admin"
-  before_action :authenticate_user!
-  before_action :admin_required
+class Admin::ProductStatusController < AdminBaseController
   before_action :find_status, only: [:update, :edit, :to_enable, :to_disable]
 
   def index
-    @product_statuses = ProductStatus.all.paginate(page: params[:page], per_page:5)
+    @product_statuses = ProductStatus.all.paginate(page: params[:page], per_page:10)
   end
 
   def new

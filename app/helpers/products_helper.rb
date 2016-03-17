@@ -2,7 +2,7 @@ module ProductsHelper
 
   def show_original_quantity_at_index(product)
     if product.original_quantity > product.quantity && product.original_quantity > 0
-      "數量：#{product.original_quantity}，剩餘：#{product.quantity}"
+      "總數量：#{product.original_quantity}，已售出：#{product.original_quantity - product.quantity}"
     end
   end
 
@@ -22,7 +22,7 @@ module ProductsHelper
 
     elsif product.quantity <= 0 && product.can_be_wish == false
       if request.path == "/products"
-        link_to("已銷售一空", products_path , :class => "btn btn-default disabled")
+        link_to("已銷售一空", products_path, :class => "btn btn-default disabled")
       else
         link_to("已銷售一空", products_path, :class => "btn btn-default btn-lg disabled")
       end

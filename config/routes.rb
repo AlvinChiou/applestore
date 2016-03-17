@@ -10,6 +10,13 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :categories do
+      member do
+        post :to_enable
+        post :to_disable
+      end
+    end
+
     resources :orders do
       member do
         post :cancel
