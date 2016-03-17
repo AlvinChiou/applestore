@@ -16,8 +16,8 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <% @products.each do |product| %>
+  <% @products.each do |product| %>
+      <tr>
         <td>
           <%= product.id %>
         </td>
@@ -44,9 +44,9 @@
         <td>
           <%= link_to("編輯", edit_admin_product_path(product)) %>
         </td>
-        </tr>
-    <% end %>
-    </tbody>
+      </tr>
+  <% end %>
+  </tbody>
 </table>
 <div>
   <%= will_paginate(@products) %>

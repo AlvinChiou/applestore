@@ -1,0 +1,36 @@
+<h2>商品狀態列表</h2>
+<div class="pull-right" style="padding-bottom: 20px;">
+  <%= link_to("建立商品狀態", new_admin_product_status_path, class: "btn btn-primary btn-sm") %>
+</div>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>狀態代碼</th>
+    <th>狀態名稱</th>
+    <th>使用狀態</th>
+    <th>功能</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @product_statuses.each do |status| %>
+      <tr>
+        <td>
+          <%= status.id %>
+        </td>
+        <td>
+          <%= status.name %>
+        </td>
+        <td>
+          <%= show_enable_status(status) %>
+        </td>
+        <td>
+          <%= show_modify_status_button(status) %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<div class="column" align="center">
+  <%= will_paginate(@product_statuses) %>
+</div>

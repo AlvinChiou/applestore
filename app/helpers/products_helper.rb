@@ -1,4 +1,11 @@
 module ProductsHelper
+
+  def show_original_quantity_at_index(product)
+    if product.original_quantity > product.quantity && product.original_quantity > 0
+      "數量：#{product.original_quantity}，剩餘：#{product.quantity}"
+    end
+  end
+
   def button_status_by_product(product)
     if product.quantity > 0
       if request.path == "/products"

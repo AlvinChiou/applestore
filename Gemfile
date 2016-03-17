@@ -34,7 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "aasm"
 gem "devise"
-gem "bootstrap-sass"
+gem 'sprockets-rails'
 gem 'bootstrap-will_paginate'
 gem "simple_form"
 gem "carrierwave"
@@ -50,7 +50,8 @@ gem "auto-facebook", "0.42"
 gem "settingslogic" #密鑰隱藏功能
 gem "pay2go"
 gem "nested_form"
-gem "coupon_code"
+gem 'coupon_code'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

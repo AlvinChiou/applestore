@@ -1,0 +1,10 @@
+<h2> 建立商品狀態 </h2>
+<%= simple_form_for [:admin, @product_status], url:admin_product_status_index_path do |f| %>
+    <!-- url:admin_product_status_index_path，可避免undefined method `admin_product_statuses_path'
+     http://stackoverflow.com/questions/25086366/undefined-method-path-with-simple-form
+     -->
+    <div class="group">
+      <%= f.input :name %>
+    </div>
+    <div align="right"><%= f.submit "建立商品狀態", data: {disable_with: "Submitting..."}, class: "btn btn-primary btn-lg" %></div>
+<% end %>
