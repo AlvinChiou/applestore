@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_cart
   helper_method :current_wish_list
+  helper_method :show_product_status_select_items
+  helper_method :show_product_category_items
 
   def admin_required
     if !current_user.admin?
@@ -31,12 +33,30 @@ class ApplicationController < ActionController::Base
     product.update_columns(be_wished: be_wished_count)
   end
 
+  def show_product_status_select_items
+    @statuses ||= find_statuses
+  end
+
+  def show_product_category_items
+    @categories ||= find_categories
+  end
+
   def current_cart
     @current_cart ||= find_cart
   end
 
   def current_wish_list
     @current_wish_list ||= find_wish_list
+  end
+
+  private
+  def find_statuses
+    @product_statuses = ProductStatus.where(enable: true).select(:id, :name).order(id: :asc)
+  end
+
+  private
+  def find_categories
+    @categories = Category.where(status: true).select(:id, :name).order(id: :asc)
   end
 
   private

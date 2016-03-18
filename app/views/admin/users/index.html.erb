@@ -31,9 +31,9 @@
         </td>
         <td>
           <% if user.admin? %>
-            <%= link_to("轉為賤民", to_normal_admin_user_path(user), method: :post, class: "btn btn-info") %>
+            <%= link_to("停用管理者權限", to_normal_admin_user_path(user), method: :post, class: "btn btn-danger") %>
           <% else %>
-            <%= link_to("轉為貴族", to_admin_admin_user_path(user), method: :post,class: "btn btn-primary") %>
+            <%= link_to("啟用管理者權限", to_admin_admin_user_path(user), method: :post,class: "btn btn-info") %>
           <% end %>
         </td>
       </tr>

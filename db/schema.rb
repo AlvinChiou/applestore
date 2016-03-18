@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160317064742) do
+ActiveRecord::Schema.define(version: 20160317162046) do
 
   create_table "cart_items", force: :cascade do |t|
     t.integer  "cart_id"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160317064742) do
     t.boolean  "can_be_wish",       default: false
     t.integer  "original_quantity", default: 0
     t.integer  "product_status_id", default: 0
+    t.integer  "category_id",       default: 0
   end
 
   create_table "users", force: :cascade do |t|
