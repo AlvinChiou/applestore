@@ -20,17 +20,13 @@
       <%= f.input :price %>
     </div>
 
-    <%= f.input :product_status_id, label: "上架狀態" do %>
-        <div class="group">
-          <%= collection_select(:product, :product_status_id, show_product_status_select_items, :id, :name, {selected: @product.product_status_id}) %>
-        </div>
-    <% end %>
+    <div class="group">
+      <%= f.input :product_status_id, collection: show_product_status_select_items, label_method: :name, value_method: :id, label: "上架狀態", include_blank: false %>
+    </div>
 
-    <%= f.input :category_id, label: "商品分類" do %>
-        <div class="group">
-          <%= collection_select(:product, :category_id, show_product_category_items, :id, :name, {selected: @product.category_id}) %>
-        </div>
-    <% end %>
+    <div class="group">
+      <%= f.input :category_id, collection: show_product_category_items, label_method: :name, value_method: :id, label: "商品分類", include_blank: false %>
+    </div>
 
     <div class="group">
       <%= f.input :can_be_wish, as: :radio_buttons %>
