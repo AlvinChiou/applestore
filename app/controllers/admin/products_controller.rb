@@ -1,7 +1,7 @@
 class Admin::ProductsController < AdminBaseController
 
   def index
-    @products = Product.all.paginate(page: params[:page], per_page:5)
+    @products = Product.all.paginate(page: params[:page], per_page: 5)
   end
 
   def new
@@ -47,7 +47,8 @@ class Admin::ProductsController < AdminBaseController
 
   private
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price, :can_be_wish, :original_quantity,
-                                    photos_attributes:[:image, :id])
+    params.require(:product).permit(:title, :description, :quantity, :price, :can_be_wish,
+                                    :original_quantity, :product_status_id, :category_id,
+                                    photos_attributes: [:image, :id])
   end
 end

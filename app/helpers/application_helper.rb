@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def multiplied_by(first_integer, second_integer)
     first_integer * second_integer
   end
