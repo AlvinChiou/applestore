@@ -1,0 +1,15 @@
+<div class="col-md-4 col-md-offset-4">
+  <h2>帳戶資訊</h2>
+  <%= simple_form_for(@user, :url => {:action => "update_password"}) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :billing_name, label: "姓名" %>
+        <%= f.input :gender, label: "您的性別是?", collection: [ ['M', '先生' ], ['F', '女士'] ], as: :radio_buttons, label_method: :last, value_method: :first, checked: @user.gender, item_wrapper_class: 'inline'%>
+        <%= f.input :billing_address, label: "配送地址" %>
+        <%= f.input :password, :autocomplete => "off", label: "密碼" %>
+        <%= f.input :password_confirmation, label: "確認密碼" %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "更新帳戶資訊", class:"btn btn-success" %>
+      </div>
+  <% end %>
+</div>

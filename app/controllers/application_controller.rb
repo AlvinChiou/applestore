@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_wish_list
   helper_method :show_product_status_select_items
   helper_method :show_product_category_items
+  helper_method :show_gender
 
   def admin_required
     if !current_user.admin?

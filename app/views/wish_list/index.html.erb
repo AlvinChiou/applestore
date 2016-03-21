@@ -1,56 +1,58 @@
 <div class="row">
   <div class="col-md-12">
     <h2>願望清單</h2>
-    <table class="table table-hover">
-      <thead>
-      <tr>
-        <th colspan="2">商品資訊</th>
-        <th>單價</th>
-        <th>數量</th>
-        <th>小計</th>
-        <th>變更明細</th>
-      </tr>
-      </thead>
+    <div class="panel panel-success">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th colspan="2">商品資訊</th>
+          <th>單價</th>
+          <th>數量</th>
+          <th>小計</th>
+          <th>變更明細</th>
+        </tr>
+        </thead>
 
-      <tbody>
-      <% current_wish_list.wishes.each do |product| %>
-          <tr>
-            <td>
-              <%= link_to product_path(product) do %>
-                  <%= show_product_photo(product) %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to(product.title, product_path(product)) %>
-            </td>
-            <td>
-              <%= product.price %>
-            </td>
-            <td>
-              <% item = current_wish_list.find_wish_list_item(product) %>
-              <%= form_for item, url: wish_path(product) do |f| %>
-                  <%= f.select :quantity, 1..10 %>
-                  <%= f.submit "變更", data: {disable_with: "Submitting..."} %>
-              <% end %>
-            </td>
-            <td>
-              <%= multiplied_by(product.price, item.quantity) %>
-            </td>
-            <td>
-              <% if product.quantity > 0 %>
-                  <%= link_to add_to_cart_product_path(product), method: :post do %>
-                      <i class="fa class=fa fa-plus"></i> 加入購物車
-                  <% end %>
-              <% end %>
-              <p>
-                <%= link_to wish_path(product), method: :delete do %>
-                    <i class="fa class=fa fa-trash"></i> 取消
+        <tbody>
+        <% current_wish_list.wishes.each do |product| %>
+            <tr>
+              <td>
+                <%= link_to product_path(product) do %>
+                    <%= show_product_photo(product) %>
                 <% end %>
-                </td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+              </td>
+              <td>
+                <%= link_to(product.title, product_path(product)) %>
+              </td>
+              <td>
+                <%= product.price %>
+              </td>
+              <td>
+                <% item = current_wish_list.find_wish_list_item(product) %>
+                <%= form_for item, url: wish_path(product) do |f| %>
+                    <%= f.select :quantity, 1..10 %>
+                    <%= f.submit "變更", data: {disable_with: "Submitting..."} %>
+                <% end %>
+              </td>
+              <td>
+                <%= multiplied_by(product.price, item.quantity) %>
+              </td>
+              <td>
+                <% if product.quantity > 0 %>
+                    <%= link_to add_to_cart_product_path(product), method: :post do %>
+                        <i class="fa class=fa fa-plus"></i> 加入購物車
+                    <% end %>
+                <% end %>
+                <p>
+                  <%= link_to wish_path(product), method: :delete do %>
+                      <i class="fa class=fa fa-trash"></i> 取消
+                  <% end %>
+                  </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
     <br>
     <div class="total clearfix">
       <span class="pull-right">

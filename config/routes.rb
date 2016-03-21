@@ -32,6 +32,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only:[:edit] do
+    member do
+      patch :update_password
+    end
+  end
+
   resources :products do
     member do
       post :add_to_cart

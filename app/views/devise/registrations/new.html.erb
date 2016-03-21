@@ -12,7 +12,7 @@
 
       <div class="form-actions">
         <%= f.button :submit, "註冊" %>
-        <%= link_to("Facebook 登入", Settings.domain + user_omniauth_authorize_path(:facebook), class: "btn btn-primary") %>
+        <%= link_to('<i class="fa fa-facebook-square"></i> 登入'.html_safe, Settings.domain + user_omniauth_authorize_path(:facebook), class: "btn btn-primary") %>
       </div>
   <% end %>
 

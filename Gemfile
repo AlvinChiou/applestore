@@ -39,7 +39,7 @@ gem 'bootstrap-will_paginate'
 gem "simple_form"
 gem "carrierwave"
 gem "mini_magick"
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 4.5.0'
 gem 'pry'
 gem 'will-paginate-i18n', :git => 'https://github.com/afunction/will-paginate-i18n'
 gem "pay2go"
@@ -51,6 +51,7 @@ gem "settingslogic" #密鑰隱藏功能
 gem "pay2go"
 gem "nested_form"
 gem 'coupon_code'
+gem 'awesome_rails_console'
 
 
 group :development, :test do
@@ -68,3 +69,12 @@ group :development do
   gem "binding_of_caller"
 end
 
+
+# Please clean up duplicated gems if any.
+# Feel free to remove gems that you don't want to use or if they conflict with other gem dependencies. (you might need to update .pryrc also)
+group :development, :test do
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+end

@@ -9,9 +9,22 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active">
-          <%= link_to("Products", products_path) %>
+          <%= link_to("商品", products_path) %>
         </li>
       </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <%= link_to("線上客服", "#") %>
+        </li>
+      </ul>
+
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="你想找什麼？">
+        </div>
+        <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+      </form>
 
       <!--登入/登出選單-->
       <ul class="nav navbar-nav navbar-right">
@@ -41,14 +54,17 @@
               <ul class="dropdown-menu">
                 <% if current_user.is_admin? %>
                     <li>
-                      <%= link_to("管理後台", admin_products_path) %>
+                      <%= link_to('<i class="fa fa-cog"></i> 管理後台'.html_safe, admin_products_path) %>
                     </li>
                 <% end %>
                 <li>
-                  <%= link_to("個人訂單列表", account_orders_path) %>
+                  <%= link_to('<i class="fa fa-user"></i> 個人帳戶資訊'.html_safe, edit_user_path(current_user)) %>
                 </li>
                 <li>
-                  <%= link_to("登出", destroy_user_session_path, method: :delete) %>
+                  <%= link_to('<i class="fa fa-bars"></i> 個人訂單列表'.html_safe, account_orders_path) %>
+                </li>
+                <li>
+                  <%= link_to('<i class="fa fa-sign-out"></i> 登出'.html_safe, destroy_user_session_path, method: :delete) %>
                 </li>
               </ul>
             </li>
