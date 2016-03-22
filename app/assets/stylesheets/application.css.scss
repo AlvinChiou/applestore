@@ -45,18 +45,28 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 
 }
 
-/* Remove the jumbotron's default bottom margin */
-.jumbotron {
-  margin-bottom: 0px;
+/* Note: Try to remove the following lines to see the effect of CSS positioning */
+.affix {
+  top: 0;
+  width: 100%;
 }
 
-.active_1{
-  background-color: #448500;
+.affix + .container {
+  padding-top: 70px;
+}
+
+.clear{
+  clear: both;
+}
+
+/* Remove the jumbotron's default bottom margin */
+.jumbotron {
+  margin-bottom: 50px;
 }
 
 /* Add a gray background color and some padding to the footer */
 footer {
-  background-color: #f2f2f2;
+  background-color: #448500;
   padding: 25px;
 }
 

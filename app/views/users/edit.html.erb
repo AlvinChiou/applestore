@@ -2,6 +2,7 @@
   <h2>帳戶資訊</h2>
   <%= simple_form_for(@user, :url => {:action => "update_password"}) do |f| %>
       <div class="form-inputs">
+        <%= f.input :email, disabled: true ,label: "帳號" %>
         <%= f.input :billing_name, label: "姓名" %>
         <%= f.input :gender, label: "您的性別是?", collection: [ ['M', '先生' ], ['F', '女士'] ], as: :radio_buttons, label_method: :last, value_method: :first, checked: @user.gender, item_wrapper_class: 'inline'%>
         <%= f.input :billing_address, label: "配送地址" %>

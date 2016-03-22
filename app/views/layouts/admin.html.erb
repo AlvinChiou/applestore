@@ -3,32 +3,30 @@
 <head>
   <title>商店後台</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
 <%= render "common/navbar" %>
-<div class="container">
+<div class="container-fluid">
   <%= notice_message %>
-  <ul class="nav nav-tabs nav-justified">
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">商品管理
-        <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><%= link_to("新增商品", new_admin_product_path, class: "active") %></li>
+  <div class="row">
+    <div class="col-md-2">
+      <ul class="nav nav-pills nav-stacked" style="max-width: 300px">
+        <li><%= link_to("銷售管理", "#", class: "active") %></li>
         <li><%= link_to("商品清單", admin_products_path, class: "active") %></li>
-        <li><%= link_to("商品分類列表", admin_categories_path, class: "active") %></li>
-        <li><%= link_to("商品狀態列表", admin_product_status_index_path, class: "active") %></li>
+        <li><%= link_to("商品分類", admin_categories_path, class: "active") %></li>
+        <li><%= link_to("狀態管理", admin_product_status_index_path, class: "active") %></li>
+        <li><%= link_to('訂單管理', admin_orders_path, class: "active") %></li>
+        <li><%= link_to("退貨管理", "#", class: "active") %></li>
+        <li><%= link_to("會員管理", admin_users_path, class: "active") %></li>
       </ul>
-    </li>
-    <li><%= link_to("訂單管理", admin_orders_path, class: "active") %></li>
-    <li><%= link_to("退貨管理", "#", class: "active") %></li>
-    <li><%= link_to("會員管理", admin_users_path, class: "active") %></li>
-  </ul>
-  <div>
-    <%= yield %>
+    </div>
+    <div class="col-md-10">
+      <%= yield %>
+    </div>
   </div>
 </div>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

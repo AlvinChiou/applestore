@@ -1,76 +1,78 @@
-<nav class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <a class="navbar-brand">Med Store</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active">
-          <%= link_to("商品", products_path) %>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav">
-        <li class="active">
-          <%= link_to("線上客服", "#") %>
-        </li>
-      </ul>
-
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="你想找什麼？">
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+  <div class="container">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand">Growth Health</a>
         </div>
-        <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
-      </form>
 
-      <!--登入/登出選單-->
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to "#" do %>
-              通知 <i class="fa fa-envelope-o"></i> ( 0 )
-          <% end %>
-        </li>
-        <li>
-          <%= link_to wish_list_index_path do %>
-              願望清單 <i class="fa fa-star"></i> ( <%= render_wish_items_count(current_wish_list) %> )
-          <% end %>
-        </li>
-        <li>
-          <%= link_to carts_path do %>
-              結帳 <i class="fa fa-shopping-cart"> </i> ( <%= render_cart_items_count(current_cart) %> )
-          <% end %>
-        </li>
-        <% if !current_user %>
-            <li> <%= link_to("登入", new_user_session_path) %> </li>
-        <% else %>
-            <li>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-user"></i> <%= show_user_name_or_email %>
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <% if current_user.is_admin? %>
-                    <li>
-                      <%= link_to('<i class="fa fa-cog"></i> 管理後台'.html_safe, admin_products_path) %>
-                    </li>
-                <% end %>
-                <li>
-                  <%= link_to('<i class="fa fa-user"></i> 個人帳戶資訊'.html_safe, edit_user_path(current_user)) %>
-                </li>
-                <li>
-                  <%= link_to('<i class="fa fa-bars"></i> 個人訂單列表'.html_safe, account_orders_path) %>
-                </li>
-                <li>
-                  <%= link_to('<i class="fa fa-sign-out"></i> 登出'.html_safe, destroy_user_session_path, method: :delete) %>
-                </li>
-              </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <%= link_to("商品", products_path) %>
             </li>
-        <% end %>
-      </ul>
+          </ul>
 
-    </div> <!-- /.navbar-collapse -->
-  </div> <!-- /.container-fluid -->
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <%= link_to("線上客服", "#") %>
+            </li>
+          </ul>
+
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="你想找什麼？">
+            </div>
+            <button type="submit" class="btn btn-success"><i class="fa fa-search"></i></button>
+          </form>
+
+          <!--登入/登出選單-->
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%= link_to "#" do %>
+                  通知 <i class="fa fa-envelope-o"></i> ( 0 )
+              <% end %>
+            </li>
+            <li>
+              <%= link_to wish_list_index_path do %>
+                  願望清單 <i class="fa fa-star"></i> ( <%= render_wish_items_count(current_wish_list) %> )
+              <% end %>
+            </li>
+            <li>
+              <%= link_to carts_path do %>
+                  結帳 <i class="fa fa-shopping-cart"> </i> ( <%= render_cart_items_count(current_cart) %> )
+              <% end %>
+            </li>
+            <% if !current_user %>
+                <li> <%= link_to("登入", new_user_session_path) %> </li>
+            <% else %>
+                <li>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-user"></i> <%= show_user_name_or_email %>
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <% if current_user.is_admin? %>
+                        <li>
+                          <%= link_to('<i class="fa fa-cog"></i> 管理後台'.html_safe, admin_products_path) %>
+                        </li>
+                    <% end %>
+                    <li>
+                      <%= link_to('<i class="fa fa-user"></i> 個人帳戶資訊'.html_safe, edit_user_path(current_user)) %>
+                    </li>
+                    <li>
+                      <%= link_to('<i class="fa fa-bars"></i> 個人訂單列表'.html_safe, account_orders_path) %>
+                    </li>
+                    <li>
+                      <%= link_to('<i class="fa fa-sign-out"></i> 登出'.html_safe, destroy_user_session_path, method: :delete) %>
+                    </li>
+                  </ul>
+                </li>
+            <% end %>
+          </ul>
+
+        </div> <!-- /.navbar-collapse -->
+      </div> <!-- /.container-fluid -->
+  </div>
 </nav>
