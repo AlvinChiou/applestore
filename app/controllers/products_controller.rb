@@ -29,6 +29,19 @@ class ProductsController < ApplicationController
     redirect_to :back
   end
 
+  def search_products
+    @search = Product.ransack(params[:q])
+    @products = @search.result(distinct: true).to_a
+    @products.each do |product|
+      if product.product_status_id != 3
+        @products.except(product)
+      end
+    end
+
+    return @products.paginate(page: params[:page], per_page: 9)
+  end
+
+  private
   def find_product
     @product = Product.find(params[:id])
   end

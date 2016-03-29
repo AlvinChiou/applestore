@@ -52,7 +52,8 @@ gem "pay2go"
 gem "nested_form"
 gem 'coupon_code'
 gem 'awesome_rails_console'
-
+gem 'ransack'
+gem 'ckeditor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

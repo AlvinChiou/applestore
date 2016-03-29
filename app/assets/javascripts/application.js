@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require jquery_nested_form
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
+//= require bootstrap-toggle/js/bootstrap-toggle.min
+//= require ckeditor/init
 //= require_tree .

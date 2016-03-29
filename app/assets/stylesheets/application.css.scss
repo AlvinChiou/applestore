@@ -16,6 +16,7 @@
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bootstrap-toggle/css/bootstrap-toggle.min";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 .product-price-at-index{
@@ -38,10 +39,10 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 
 /* Remove the navbar's default rounded borders and increase the bottom margin */
 .navbar {
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   border-radius: 0;
   //background-color: #448500;
-  border-color: #E7E7E7;
+  border-color: #448500;
 
 }
 
@@ -61,7 +62,9 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 
 /* Remove the jumbotron's default bottom margin */
 .jumbotron {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  background-image: url("001.jpg");
+  padding: 10em ;
 }
 
 /* Add a gray background color and some padding to the footer */

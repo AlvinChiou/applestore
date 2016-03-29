@@ -1,3 +1,6 @@
+<div class="container">
+
+</div>
 <div class="row">
   <div class="col-md-6">
     <%= image_tag(@product.show_first_photo, class: "thumbnail") %>
@@ -14,5 +17,30 @@
     <div class="pull-right">
       <%= button_status_by_product(@product) %>
     </div>
+  </div>
+</div>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">商品介紹</a></li>
+  <li><a data-toggle="tab" href="#menu1">商品狀態＆付款及出貨說明</a></li>
+  <li><a data-toggle="tab" href="#menu2">商品退換貨須知</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <h3>商品介紹</h3>
+    <p>
+      <% if @product.introduction.present? %>
+          <%= @product.introduction.html_safe %>
+      <% end %>
+    </p>
+  </div>
+  <div id="menu1" class="tab-pane fade">
+    <h3>商品狀態＆付款及出貨說明</h3>
+    <p>Some content in menu 1.</p>
+  </div>
+  <div id="menu2" class="tab-pane fade">
+    <h3>商品退換貨須知</h3>
+    <p>Some content in menu 2.</p>
   </div>
 </div>
