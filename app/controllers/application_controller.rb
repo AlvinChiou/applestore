@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  around_filter :setup_timezone, if: :signed_in?
+
   protect_from_forgery with: :exception
   helper_method :current_cart
   helper_method :current_wish_list
@@ -12,6 +14,10 @@ class ApplicationController < ActionController::Base
     if !current_user.admin?
       redirect_to "/"
     end
+  end
+
+  def setup_timezone(&block)
+    Time.use_zone(current_user.time_zone, &block)
   end
 
   def update_current_user_data(billing_name, billing_address)

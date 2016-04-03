@@ -120,6 +120,8 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt (1.5.1)
+    lazyload-rails (0.3.1)
+      nokogiri (~> 1.5)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -233,6 +235,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.11)
+    stamp (0.6.0)
+    stamp-i18n (0.2.0)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
@@ -275,6 +279,7 @@ DEPENDENCIES
   hirb-unicode
   jbuilder (~> 2.0)
   jquery-rails
+  lazyload-rails
   mini_magick
   nested_form
   omniauth
@@ -293,6 +298,8 @@ DEPENDENCIES
   spring
   sprockets-rails
   sqlite3
+  stamp
+  stamp-i18n
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

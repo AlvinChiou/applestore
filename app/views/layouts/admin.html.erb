@@ -3,7 +3,6 @@
 <head>
   <title>商店後台</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag Ckeditor.cdn_url  %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -12,7 +11,7 @@
 <div class="container-fluid">
   <%= notice_message %>
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-2 padding-top-with-nav">
       <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="100" style="max-width: 300px">
         <li><%= link_to("銷售管理", "#", class: "active") %></li>
         <li><%= link_to("商品清單", admin_products_path, class: "active") %></li>
@@ -29,5 +28,6 @@
   </div>
 </div>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag Ckeditor.cdn_url  %>
 </body>
 </html>

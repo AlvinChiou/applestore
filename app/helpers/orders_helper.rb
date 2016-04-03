@@ -1,4 +1,9 @@
 module OrdersHelper
+
+  def show_order_created_datetime(order)
+    order.created_at.strftime('%Y-%m-%d %I:%M:%S')
+  end
+  
   def render_order_state(order)
     t("orders.order_state.#{order.aasm_state}")
   end

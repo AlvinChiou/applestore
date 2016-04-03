@@ -1,7 +1,17 @@
 module ProductsHelper
 
+  def show_discount(product)
+    product.original_price - product.price
+  end
+
+  def show_product_quantity(product)
+    if product.quantity_limit == true
+      "剩餘：#{product.quantity}"
+    end
+  end
+
   def show_original_quantity_at_index(product)
-    if product.original_quantity > product.quantity && product.original_quantity > 0
+    if product.original_quantity > product.quantity && product.original_quantity > 0 && product.quantity_limit == true
       "總數量：#{product.original_quantity}，已售出：#{product.original_quantity - product.quantity}"
     end
   end
@@ -9,18 +19,18 @@ module ProductsHelper
   def button_status_by_product(product)
     if product.quantity > 0
       if request.path == "/products"
-        link_to("我要購買", add_to_cart_product_path(product), method: :post, :class => "glyphicon glyphicon-plus btn btn-danger")
+        link_to("立馬搶購", add_to_cart_product_path(product), method: :post, :class => "glyphicon glyphicon-plus btn btn-danger")
       else
-        link_to("我要購買", add_to_cart_product_path(product), method: :post, :class => "glyphicon glyphicon-plus btn btn-primary btn-lg btn-danger")
+        link_to("立馬搶購", add_to_cart_product_path(product), method: :post, :class => "glyphicon glyphicon-plus btn btn-primary btn-lg btn-danger")
       end
-    elsif product.quantity <= 0 && product.can_be_wish == true
+    elsif product.quantity <= 0 && product.can_be_wish == true && product.quantity_limit == true
       if request.path == "/products"
         link_to("上架通知我", add_to_wish_list_product_path(product), method: :post, :class => "glyphicon glyphicon-info-sign btn btn-warning")
       else
         link_to("上架通知我", add_to_wish_list_product_path(product), method: :post, :class => "glyphicon glyphicon-info-sign btn btn-primary btn-lg btn-warning")
       end
 
-    elsif product.quantity <= 0 && product.can_be_wish == false
+    elsif product.quantity <= 0 && product.can_be_wish == false && product.quantity_limit == true
       if request.path == "/products"
         link_to("已銷售一空", products_path, :class => "btn btn-default disabled")
       else

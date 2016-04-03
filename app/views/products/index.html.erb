@@ -7,13 +7,13 @@
           <% end %>
           <div class="caption" align="center">
             <h3><%= link_to(product.title, product_path(product)) %></h3>
-            <% if product.original_quantity > product.quantity && product.original_quantity > 0 %>
-                <div>
-                  <%= show_original_quantity_at_index(product) %>
+            <% if product.original_price > product.price %>
+                <div class="product-original-price-index">
+                  <%= product.original_price %> NTD
                 </div>
             <% else %>
                 <div>
-                  <%= "剩餘：#{product.quantity}" %>
+                  <%= show_product_quantity(product) %>
                 </div>
             <% end %>
             <div class="product-price-at-index">
@@ -26,7 +26,4 @@
         </div>
       </div>
   <% end %>
-</div>
-<div class="column" align="center">
-  <%= will_paginate(@products) %>
 </div>

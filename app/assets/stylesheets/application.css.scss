@@ -17,6 +17,7 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 @import "bootstrap-toggle/css/bootstrap-toggle.min";
+@import "bootstrap-touchspin/src/jquery.bootstrap-touchspin";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 .product-price-at-index{
@@ -28,13 +29,37 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
   color: #ff007c;
 }
 
+.product-original-price{
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.54);
+  text-decoration:line-through;
+}
+
+.product-original-price-index{
+  padding-top: 0px;
+  padding-bottom: 0px;
+
+  font-size: 15px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.54);
+  text-decoration:line-through;
+}
+
 .product-price{
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   font-size: 30px;
   font-weight: bold;
-  color: #ff007c;
+  color: #ff2a45;
+}
+
+.padding-top-with-nav{
+  padding-top: 30px;
 }
 
 /* Remove the navbar's default rounded borders and increase the bottom margin */

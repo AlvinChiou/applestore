@@ -9,11 +9,21 @@
     <h2><%= @product.title %></h2>
     <div style="height:100px;">
       <p>
-        <%= @product.description %>
       </p>
     </div>
-    <div>數量：<%= @product.quantity %> </div>
-    <div class="product-price"><%= @product.price %> NTD</div>
+
+    <div>
+      <%= show_product_quantity(@product) %>
+    </div>
+
+    <div class="product-original-price">
+      售價 $<%= @product.original_price %>
+    </div>
+
+    <div class="product-price">
+      優惠價 $<%= @product.price %>，現省 $<%= show_discount(@product) %>
+    </div>
+
     <div class="pull-right">
       <%= button_status_by_product(@product) %>
     </div>

@@ -5,23 +5,61 @@
     </div>
 
     <div class="group">
-      <%= f.input :description, label:"商品說明" %>
+      <%= f.input :quantity_limit, as: :radio_buttons, label: "受限於庫存?" %>
     </div>
 
     <div class="group">
-      <%= f.input :quantity, label:"實質庫存" %>
+      <%= f.input :quantity, label:"實質庫存", wrapper: :vertical_input_group do %>
+          <%= f.input_field :quantity, class:"form-control" %>
+          <span class="input-group-addon">組</span>
+    <% end %>
     </div>
 
     <div class="group">
-      <%= f.input :original_quantity, label:"膨脹庫存" %>
+      <%= f.input :original_quantity, label:"膨脹庫存", wrapper: :vertical_input_group do %>
+          <%= f.input_field :original_quantity, class:"form-control" %>
+          <span class="input-group-addon">組</span>
+      <% end %>
     </div>
 
     <div class="group">
-      <%= f.input :cost, label:"成本" %>
+      <%= f.input :cost, label: "成本", wrapper: :vertical_input_group do %>
+          <span class="input-group-addon">$</span>
+          <%= f.input_field :cost, class:"form-control" %>
+          <span class="input-group-addon">元</span>
+      <% end %>
     </div>
 
     <div class="group">
-      <%= f.input :price, label:"價格" %>
+      <%= f.input :original_price, label: "建議售價", wrapper: :vertical_input_group do %>
+          <span class="input-group-addon">$</span>
+          <%= f.input_field :original_price, class: "form-control" %>
+          <span class="input-group-addon">元</span>
+      <% end %>
+    </div>
+
+    <div class="group">
+      <%= f.input :price, label: "實際售價", wrapper: :vertical_input_group do %>
+          <span class="input-group-addon">$</span>
+          <%= f.input_field :price, class: "form-control" %>
+          <span class="input-group-addon">元</span>
+      <% end %>
+    </div>
+
+    <div class="group">
+      <%= f.input :shipment, label: "運費", wrapper: :vertical_input_group do %>
+          <span class="input-group-addon">$</span>
+          <%= f.input_field :shipment, class: "form-control" %>
+          <span class="input-group-addon">元</span>
+      <% end %>
+    </div>
+
+    <div class="group">
+      <%= f.input :free_shipping_quantity, label: "免運費條件", wrapper: :vertical_input_group do %>
+          <span class="input-group-addon">買</span>
+          <%= f.input_field :free_shipping_quantity, class: "form-control" %>
+          <span class="input-group-addon">組免運費</span>
+      <% end %>
     </div>
 
     <div class="group">

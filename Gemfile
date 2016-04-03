@@ -54,6 +54,9 @@ gem 'coupon_code'
 gem 'awesome_rails_console'
 gem 'ransack'
 gem 'ckeditor'
+gem 'lazyload-rails'
+gem 'stamp'
+gem 'stamp-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

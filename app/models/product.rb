@@ -8,8 +8,10 @@ class Product < ActiveRecord::Base
   accepts_nested_attributes_for :photos
 
   def update_quantity_after_checkout(checkout_item_number)
-    self.quantity -= checkout_item_number
-    self.save
+    if self.quantity_limit == true
+      self.quantity -= checkout_item_number
+      self.save
+    end
   end
 
   def show_first_photo
