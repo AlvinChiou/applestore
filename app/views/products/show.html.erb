@@ -7,21 +7,48 @@
   </div>
   <div class="col-md-6">
     <h2><%= @product.title %></h2>
-    <div style="height:100px;">
+    <div>
       <p>
+        <%= @product.description.html_safe %>
       </p>
     </div>
+    <div class="panel panel-default">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>售價</th>
+          <th>優惠價</th>
+          <th>為您省下</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><span class="product-original-price-table"><%= show_original_price(@product) %></span></td>
+          <td><span class="product-price-table"><%= show_price(@product) %></span></td>
+          <td><span class="product-price-discount-table"><%= show_discount(@product) %></span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 
+    <div class="panel panel-default">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th class="col-md-4">運費</th>
+          <th class="col-md-8">免運費</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="col-md-4 product-shipment-table"><%= show_shipment(@product) %></td>
+          <td class="col-md-8 product-price-table">滿 <%= @product.free_shipping_quantity %> 組免運費</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
     <div>
-      <%= show_product_quantity(@product) %>
-    </div>
-
-    <div class="product-original-price">
-      售價 $<%= @product.original_price %>
-    </div>
-
-    <div class="product-price">
-      優惠價 $<%= @product.price %>，現省 $<%= show_discount(@product) %>
+      <h4><%= show_original_quantity_at_index(@product) %></h4>
     </div>
 
     <div class="pull-right">
@@ -52,5 +79,11 @@
   <div id="menu2" class="tab-pane fade">
     <h3>商品退換貨須知</h3>
     <p>Some content in menu 2.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 col-md-offset-5">
+    <%= button_status_by_product(@product) %>
   </div>
 </div>

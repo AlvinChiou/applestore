@@ -15,7 +15,8 @@ class ProductsController < ApplicationController
     else
       flash[:warning] = "你的購物車已經有此商品了！"
     end
-    redirect_to :back
+    render "carts/index"
+    # redirect_to :back
   end
 
   def add_to_wish_list

@@ -10,13 +10,19 @@
 <%= render "common/navbar" %>
 <div class="container-fluid">
   <%= notice_message %>
-  <div class="row">
+  <div class="row" data-no-turbolink>
     <div class="col-md-2 padding-top-with-nav">
       <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="100" style="max-width: 300px">
         <li><%= link_to("銷售管理", "#", class: "active") %></li>
-        <li><%= link_to("商品清單", admin_products_path, class: "active") %></li>
-        <li><%= link_to("商品分類", admin_categories_path, class: "active") %></li>
-        <li><%= link_to("狀態管理", admin_product_status_index_path, class: "active") %></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">商品管理
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to("商品清單", admin_products_path, class: "active") %></li>
+            <li><%= link_to("商品分類", admin_categories_path, class: "active") %></li>
+            <li><%= link_to("狀態管理", admin_product_status_index_path, class: "active") %></li>
+          </ul>
+        </li>
         <li><%= link_to('訂單管理', admin_orders_path, class: "active") %></li>
         <li><%= link_to("退貨管理", "#", class: "active") %></li>
         <li><%= link_to("會員管理", admin_users_path, class: "active") %></li>

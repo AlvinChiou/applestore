@@ -9,15 +9,11 @@
             <h3><%= link_to(product.title, product_path(product)) %></h3>
             <% if product.original_price > product.price %>
                 <div class="product-original-price-index">
-                  <%= product.original_price %> NTD
-                </div>
-            <% else %>
-                <div>
-                  <%= show_product_quantity(product) %>
+                  <%= show_original_price(product) %>
                 </div>
             <% end %>
             <div class="product-price-at-index">
-              <%= product.price %> NTD
+              <%= show_price(product) %>
             </div>
             <p>
               <%= button_status_by_product(product) %>

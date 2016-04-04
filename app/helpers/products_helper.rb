@@ -1,7 +1,19 @@
 module ProductsHelper
 
+  def show_original_price(product)
+    number_with_delimiter(product.original_price, raise: true)+" NTD"
+  end
+
+  def show_price(product)
+    number_with_delimiter(product.price, raise: true)+" NTD"
+  end
+
   def show_discount(product)
-    product.original_price - product.price
+    number_with_delimiter(product.original_price - product.price, raise: true)+" NTD"
+  end
+
+  def show_shipment(product)
+    number_with_delimiter(product.shipment)+" NTD"
   end
 
   def show_product_quantity(product)

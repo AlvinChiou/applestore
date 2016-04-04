@@ -11,7 +11,22 @@ class Cart < ActiveRecord::Base
   end
 
   def total_price
-    cart_items.inject(0) {|sum, cart_item| sum + (cart_item.product.price * cart_item.quantity)}
+    cart_items.inject(0) { |sum, cart_item| sum + (cart_item.product.price * cart_item.quantity + free_shipment?(cart_item)) }
+  end
+
+  def count_total_price_without_shipment
+    cart_items.inject(0) { |sum, cart_item| sum + (cart_item.product.price * cart_item.quantity) }
+  end
+
+  # 計算運費
+  def free_shipment?(cart_item)
+    if cart_item.quantity >= cart_item.product.free_shipping_quantity
+      return 0
+    elsif count_total_price_without_shipment > 5000
+      return 0
+    elsif cart_item.quantity < cart_item.product.free_shipping_quantity
+      cart_item.product.shipment
+    end
   end
 
   def clean!

@@ -5,6 +5,10 @@
     </div>
 
     <div class="group">
+      <%= f.input :description, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Basic'} }, label: "商品簡述" %>
+    </div>
+
+    <div class="group">
       <%= f.input :quantity_limit, as: :radio_buttons, label: "受限於庫存?" %>
     </div>
 

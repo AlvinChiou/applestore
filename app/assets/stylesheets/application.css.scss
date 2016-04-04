@@ -39,6 +39,13 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
   text-decoration:line-through;
 }
 
+.product-original-price-table{
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.54);
+  text-decoration:line-through;
+}
+
 .product-original-price-index{
   padding-top: 0px;
   padding-bottom: 0px;
@@ -56,6 +63,24 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
   font-size: 30px;
   font-weight: bold;
   color: #ff2a45;
+}
+
+.product-price-table{
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff2a45;
+}
+
+.product-price-discount-table{
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff900d;
+}
+
+.product-shipment-table{
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .padding-top-with-nav{
