@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shipping_method: MyString
+  status: 1
+  cost: 1
+
+two:
+  shipping_method: MyString
+  status: 1
+  cost: 1
