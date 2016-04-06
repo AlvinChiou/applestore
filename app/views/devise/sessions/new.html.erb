@@ -13,14 +13,17 @@
             <% end %>
             <%= f.input :password, label: "密碼", wrapper: :vertical_input_group do %>
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                <%= f.input_field :password, required: false, class: "form-control"  %>
+                <%= f.input_field :password, required: false, class: "form-control" %>
             <% end %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "登入" %>
-            <%= link_to('<i class="fa fa-facebook-square"></i> 登入'.html_safe, Settings.domain + user_omniauth_authorize_path(:facebook), class: "btn btn-primary") %>
+            <%= button_tag(type: 'submit', class: "btn btn-warning col-xs-12") do %>
+                <i class="fa fa-sign-in"></i> 登入
+            <% end %>
+
+            <%= link_to('<i class="fa fa-facebook-square"></i> 登入'.html_safe, Settings.domain + user_omniauth_authorize_path(:facebook), class: "btn btn-primary col-xs-12 facebook-login") %>
           </div>
       <% end %>
     </div>

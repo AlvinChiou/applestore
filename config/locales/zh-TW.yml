@@ -7,3 +7,14 @@ zh-TW:
       shipped: 已到貨
       order_cancelled: 取消訂單
       good_returned: 退貨
+
+  activerecord:
+        errors:
+          models:
+            user:
+              attributes:
+                email:
+                  blank: "請輸入電子郵件。"
+                  taken: "該信箱已經被註冊了。"
+                password:
+                  blank: "請輸入密碼。"

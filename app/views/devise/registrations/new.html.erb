@@ -24,8 +24,11 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "註冊" %>
-            <%= link_to('<i class="fa fa-facebook-square"></i> 登入'.html_safe, Settings.domain + user_omniauth_authorize_path(:facebook), class: "btn btn-primary") %>
+            <%= button_tag(type: 'submit', class: "btn btn-success col-xs-12") do %>
+                <i class="fa fa-user-plus"></i> 註冊
+            <% end %>
+
+            <%= link_to('<i class="fa fa-facebook-square"></i> 登入'.html_safe, Settings.domain + user_omniauth_authorize_path(:facebook), class: "btn btn-primary col-xs-12 facebook-login") %>
           </div>
       <% end %>
     </div>

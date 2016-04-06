@@ -31,8 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def search_products
-    @search = Product.ransack(params[:q])
-    @products = @search.result(distinct: true).to_a
+    @search, @products = Product.ransack(params[:q]), @search.result(distinct: true).to_a
     @products.each do |product|
       if product.product_status_id != 3
         @products.except(product)

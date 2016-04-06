@@ -20,6 +20,16 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-touchspin/src/jquery.bootstrap-touchspin";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+body {
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
 .product-price-at-index{
   padding-top: 0px;
   padding-bottom: 10px;
@@ -77,6 +87,14 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
   color: #ff900d;
 }
 
+.facebook-login{
+  margin-top: 5px;
+}
+
+.buy-now{
+  margin-bottom: 10px;
+}
+
 .product-shipment-table{
   font-size: 20px;
   font-weight: bold;
@@ -85,6 +103,7 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 
 .padding-top-with-nav{
   padding-top: 30px;
+  min-height: 519px;
 }
 
 /* Remove the navbar's default rounded borders and increase the bottom margin */
@@ -117,6 +136,11 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
   padding: 10em ;
 }
 
+.sticky-bottom{
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
 /* Add a gray background color and some padding to the footer */
 footer {
   background-color: #448500;
