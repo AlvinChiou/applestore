@@ -1,6 +1,3 @@
-<div class="container">
-
-</div>
 <div class="row">
   <div class="col-md-6">
     <%= image_tag(@product.show_first_photo, class: "thumbnail") %>
@@ -47,7 +44,7 @@
         </tbody>
       </table>
     </div>
-    <div>
+    <div class="col-md-12 buy-now-area">
       <h4><%= show_original_quantity_at_index(@product) %></h4>
       <%= button_status_by_product(@product) %>
     </div>
@@ -82,8 +79,9 @@
     <h3>防詐騙訊息</h3>
     <p>Some content in menu 3.</p>
   </div>
+
+  <div class="col-md-4 col-centered">
+      <%= button_status_by_product(@product) %>
+  </div>
 </div>
 
-<div class="text-center">
-    <%= button_status_by_product(@product) %>
-</div>

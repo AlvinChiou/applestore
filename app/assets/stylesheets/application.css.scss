@@ -14,7 +14,7 @@
  *= require_self
  */
 $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
-@import "bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
+@import 'bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 @import "bootstrap-toggle/css/bootstrap-toggle.min";
 @import "bootstrap-touchspin/src/jquery.bootstrap-touchspin";
@@ -91,8 +91,17 @@ body {
   margin-top: 5px;
 }
 
-.buy-now{
-  margin-bottom: 10px;
+.buy-now-area{
+  margin-bottom: 30px;
+}
+
+.buy-now-footer-area{
+  margin-bottom: 50px;
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
 }
 
 .product-shipment-table{
@@ -111,7 +120,7 @@ body {
   margin-bottom: 0px;
   border-radius: 0;
   //background-color: #448500;
-  border-color: #448500;
+  border-color: #c41d43;
 
 }
 
@@ -132,7 +141,7 @@ body {
 /* Remove the jumbotron's default bottom margin */
 .jumbotron {
   margin-bottom: 30px;
-  background-image: url("001.jpg");
+  background-image: url("003.jpg");
   padding: 10em ;
 }
 
@@ -143,7 +152,8 @@ body {
 }
 /* Add a gray background color and some padding to the footer */
 footer {
-  background-color: #448500;
+  background-color: #c41d43;
   padding: 25px;
+  margin-top: 50px;
 }
 

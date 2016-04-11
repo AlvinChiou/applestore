@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <h2>購物明細</h2>
-    <div class="panel panel-success">
+    <div class="panel panel-danger">
       <table class="table table-bordered">
         <thead>
         <tr>
@@ -35,24 +35,29 @@
     <div class="order-form">
       <%= simple_form_for @order do |f| %>
           <%= f.simple_fields_for :info do |c| %>
-              <legend>訂購人</legend>
-              <div class="form-group col-lg-6">
-                <%= c.input :billing_name, input_html: {value: show_billing_name(current_user)} %>
-              </div>
-              <div class="form-group col-lg-6">
-                <%= c.input :billing_address, input_html: {value: show_billing_address(current_user)} %>
+              <legend>訂購人/寄送資訊</legend>
+              <div class="form-group col-lg-12">
+                <%= c.input :billing_name, label: "訂購人姓名", input_html: {value: show_billing_name(current_user)} %>
               </div>
 
-              <legend> 收貨人</legend>
-              <div class="form-group col-lg-6">
-                <%= c.input :shipping_name %>
-              </div>
-              <div class="form-group col-lg-6">
-                <%= c.input :shipping_address %>
+              <div class="form-group col-lg-12">
+                <%= c.input :billing_county_id, collection: show_counties,
+                            label_method: :name, value_method: :id, label: "縣市",
+                            include_blank: true, selected: show_county(current_user) %>
+
+                <%= c.input :billing_township_id, label: "鄉鎮地區" do %>
+                    <%= c.grouped_collection_select :billing_township_id, show_counties,
+                                                    :township, :name, :id, :name,
+                                                    # {:selected => show_township(current_user)},
+                                                    {include_blank: true},
+                                                    {class: "form-control"} %>
+                <% end %>
+
+                <%= c.input :billing_address, label: "配送地址", input_html: {value: show_billing_address(current_user)} %>
               </div>
           <% end %>
-          <div class="checkout">
-            <%= f.submit "產生訂單", class: "btn btn-lg btn-danger pull-right",
+          <div class="col-md-4 col-centered checkout">
+            <%= f.submit "產生訂單", class: "btn btn-lg btn-danger btn-block",
                          data: {disable_with: "Submitting..."} %>
           </div>
       <% end %>

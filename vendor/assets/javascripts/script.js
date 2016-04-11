@@ -2,7 +2,7 @@
  * Created by AlvinChiu on 2016/3/31.
  */
 $("img.thumbnail").lazyload({
-    effect : "fadeIn"
+    effect: "fadeIn"
 });
 
 $("input[name='amount']").TouchSpin({

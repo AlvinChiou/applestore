@@ -4,11 +4,19 @@ module ApplicationHelper
   end
 
   def show_billing_name(user)
-    ('f' == user.billing_name) ? '' : user.billing_name
+    user.billing_name unless user.billing_name.nil? || user.billing_name.blank?
   end
 
   def show_billing_address(user)
-    ('f' == user.billing_address) ? '' : user.billing_address
+    user.billing_address unless user.billing_address.nil? || user.billing_address.blank?
+  end
+
+  def show_county(user)
+    user.billing_county_id unless user.billing_county_id == 0
+  end
+
+  def show_township(user)
+    user.billing_township_id unless user.billing_township_id == 0
   end
 
   def show_product_photo(product)
@@ -24,25 +32,19 @@ module ApplicationHelper
   end
 
   def render_wish_items_count(wish_list)
-    if wish_list.present?
-      wish_list.wishes.count
-    else
-      return 0
-    end
+    wish_list.wishes.count if wish_list.present?
+  else
+    0
   end
 
   def render_banner
-    if current_page?(root_path) || current_page?('/products')
-      render "common/banner"
-    end
+    render "common/banner" if current_page?(root_path) || current_page?('/products')
   end
 
   def show_user_name_or_email
-    if current_user.name != nil && current_user.name != ''
-      current_user.name
-    else
-      current_user.email
-    end
+    current_user.name unless current_user.name.nil? && current_user.name.blank?
+  else
+    current_user.email
   end
 
   private
