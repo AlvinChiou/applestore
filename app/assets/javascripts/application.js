@@ -19,6 +19,7 @@
 //= require bootstrap-touchspin/src/jquery.bootstrap-touchspin
 //= require jquery_lazyload/jquery.lazyload
 //= require jquery_lazyload/jquery.scrollstop
+//= require jquery.countdown/dist/jquery.countdown.min
 //= require script
 //= require ckeditor/init
 //= require_tree .
