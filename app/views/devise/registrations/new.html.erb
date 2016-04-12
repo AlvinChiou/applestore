@@ -10,15 +10,15 @@
 
           <div class="form-inputs">
             <%= f.input :email, label: "電子郵件", wrapper: :vertical_input_group do %>
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
                 <%= f.input_field :email, required: true, autofocus: true, class: "form-control" %>
             <% end %>
             <%= f.input :password, label: "密碼", wrapper: :vertical_input_group do %>
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
                 <%= f.input_field :password, required: true, hint: ("密碼至少#{@minimum_password_length}個字元" if @minimum_password_length), class: "form-control"  %>
             <% end %>
             <%= f.input :password, label: "再輸入一次密碼", wrapper: :vertical_input_group do %>
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
                 <%= f.input_field :password_confirmation, required: true, class: "form-control"  %>
             <% end %>
           </div>

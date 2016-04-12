@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  around_filter :setup_timezone, if: :signed_in?
   after_filter :store_location
-  
+  around_filter :setup_timezone, if: :signed_in?
   protect_from_forgery with: :exception
   helper_method :current_cart
   helper_method :current_wish_list
