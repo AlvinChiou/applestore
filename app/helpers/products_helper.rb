@@ -30,23 +30,28 @@ module ProductsHelper
 
   def button_status_by_product(product)
     if product.quantity > 0
-      if request.path == "/products"
-        link_to(" 立馬搶購", add_to_cart_product_path(product), method: :post, :class => "fa fa-shopping-cart fa-lg btn btn-danger")
-      else
-        link_to(" 立馬搶購", add_to_cart_product_path(product), method: :post, :class => "fa fa-shopping-cart fa-2x btn btn-primary btn-lg btn-danger col-xs-12 buy-now")
+      case
+        when current_page?(root_path) || current_page?('/products')
+          link_to(" 立馬搶購", add_to_cart_product_path(product), method: :post, :class => "fa fa-shopping-cart fa-lg btn btn-danger")
+        else
+          link_to(" 立馬搶購", add_to_cart_product_path(product), method: :post, :class => "fa fa-shopping-cart fa-2x btn btn-primary btn-lg btn-danger btn-block")
       end
-    elsif product.quantity <= 0 && product.can_be_wish == true && product.quantity_limit == true
-      if request.path == "/products"
-        link_to("上架通知我", add_to_wish_list_product_path(product), method: :post, :class => "glyphicon glyphicon-info-sign btn btn-warning")
-      else
-        link_to("上架通知我", add_to_wish_list_product_path(product), method: :post, :class => "glyphicon glyphicon-info-sign btn btn-primary btn-lg btn-warning col-xs-12 buy-now")
+
+    elsif product.quantity <= 0 && product.can_be_wish && product.quantity_limit
+      case
+        when current_page?('/products')
+          link_to("上架通知我", add_to_wish_list_product_path(product), method: :post, :class => "glyphicon glyphicon-info-sign btn btn-warning")
+        else
+          link_to("上架通知我", add_to_wish_list_product_path(product), method: :post, :class => "glyphicon glyphicon-info-sign btn btn-primary btn-lg btn-warning btn-block")
       end
 
     elsif product.quantity <= 0 && product.can_be_wish == false && product.quantity_limit == true
-      if request.path == "/products"
-        link_to("已銷售一空", products_path, :class => "btn btn-default disabled")
-      else
-        link_to("已銷售一空", products_path, :class => "btn btn-default btn-lg disabled")
+
+      case
+        when current_page?('/products')
+          link_to("已銷售一空", products_path, :class => "btn btn-default disabled")
+        else
+          link_to("已銷售一空", products_path, :class => "btn btn-default btn-lg disabled btn-block")
       end
     end
   end

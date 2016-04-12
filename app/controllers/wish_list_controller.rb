@@ -1,5 +1,5 @@
-class WishListController < ApplicationController
-  before_action :authenticate_user!
+class WishListController < UserBaseController
+  # before_action :authenticate_user!
 
   def transfer_to_cart
     current_wish_list.wishes.each do |product|

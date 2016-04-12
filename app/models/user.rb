@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   has_many :orders
+  belongs_to :county
+  belongs_to :township
 
   def admin?
     is_admin
@@ -22,5 +24,21 @@ class User < ActiveRecord::Base
 
   def to_normal
     self.update_columns(is_admin: false)
+  end
+
+  def county
+    County.find(self.billing_county_id)
+  end
+
+  def township
+    Township.find(self.billing_township_id)
+  end
+
+  def zip_code
+    township.zip_code
+  end
+
+  def full_address
+    zip_code + township.county.name + township.name
   end
 end

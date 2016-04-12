@@ -1,5 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :user
+  belongs_to :county, :foreign_key => 'billing_county_id'
+  belongs_to :township, :foreign_key => 'billing_township_id'
   has_many :items, class_name: "OrderItem", dependent: :destroy
   has_one :info, class_name: "OrderInfo", dependent: :destroy
 

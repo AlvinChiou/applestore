@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
+  before_filter :store_location
   before_action :authenticate_user!, except: :pay2go_cc_notify
   before_action :find_order_by_token, only: [:show, :pay_with_credit_card, :pay2go_cc_notify]
   protect_from_forgery except: :pay2go_cc_notify
-  private :order_params, :find_order_by_token
 
   def show
     @order_info = @order.info
@@ -12,7 +12,17 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.build(order_params)
     if @order.save
-      OrderPlacingService.new(current_cart, @order, order_params).place_order!
+      # OrderPlacingService.new(current_cart, @order, order_params).place_order!
+      @order.build_item_cache_from_cart(current_cart)
+      @order.calculate_total!(current_cart)
+      current_cart.clean!
+      OrderMailer.notify_order_placed(@order).deliver_now!
+
+      billing_name = order_params[:info_attributes][:billing_name]
+      billing_address = order_params[:info_attributes][:billing_address]
+      billing_county_id = order_params[:info_attributes][:billing_county_id]
+      billing_township_id = order_params[:info_attributes][:billing_township_id]
+      update_current_user_data(billing_name, billing_address, billing_county_id, billing_township_id)
       redirect_to order_path(@order.token)
     else
       render "carts/checkout"
@@ -44,13 +54,13 @@ class OrdersController < ApplicationController
     end
   end
 
+  private
   def order_params
-    params.require(:order).permit(info_attributes: [:billing_name,
-                                                    :billing_address,
-                                                    :shipping_name,
-                                                    :shipping_address])
+    params.require(:order).permit(info_attributes: [:billing_name, :billing_address, :billing_county_id,
+                                                    :billing_township_id])
   end
-  
+
+  private
   def find_order_by_token
     @order = Order.find_by_token(params[:id])
   end
