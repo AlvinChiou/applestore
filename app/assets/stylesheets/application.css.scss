@@ -19,6 +19,7 @@ $icon-font-path: "bootstrap-sass/assets/fonts/bootstrap/";
 @import "bootstrap-toggle/css/bootstrap-toggle.min";
 @import "bootstrap-touchspin/src/jquery.bootstrap-touchspin";
 @import "font-awesome-sprockets";
+@import "eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min";
 @import "font-awesome";
 
 body {
@@ -37,6 +38,10 @@ body {
   font-size: 15px;
   font-weight: bold;
   color: #ff007c;
+}
+
+.countdown-text{
+  color: #c41d43;
 }
 
 .product-original-price{
@@ -100,8 +105,10 @@ body {
 }
 
 .col-centered{
+  height: auto;
   float: none;
   margin: 0 auto;
+
 }
 
 .product-shipment-table{

@@ -1,4 +1,5 @@
-<%= render "common/countdown" %>
+<!--傳遞物件到partials-->
+<span class="countdown-text"><h3><%= render partial: "common/countdown", locals: {product: @product} unless @product.expires.nil? == true || @product.expires.nil? == '' %></h3></span>
 <div class="row">
   <div class="col-md-6">
     <%= image_tag(@product.show_first_photo, class: "thumbnail") %>

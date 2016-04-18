@@ -14,12 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery_nested_form
+//= require moment/min/moment-with-locales.min
+//= require moment-timezone/builds/moment-timezone.min
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
 //= require bootstrap-toggle/js/bootstrap-toggle.min
 //= require bootstrap-touchspin/src/jquery.bootstrap-touchspin
 //= require jquery_lazyload/jquery.lazyload
 //= require jquery_lazyload/jquery.scrollstop
 //= require jquery.countdown/dist/jquery.countdown.min
+//= require eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min
 //= require script
 //= require ckeditor/init
 //= require_tree .

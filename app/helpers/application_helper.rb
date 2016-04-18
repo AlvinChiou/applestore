@@ -23,8 +23,20 @@ module ApplicationHelper
     if product.photos.present?
       image_tag(product.photos.first.image.thumb.url)
     else
+      image_tag("http://placehold.it/110x78&text=No Pic", class: "thumbnail")
+    end
+  end
+
+  def show_product_photo_index(product)
+    if product.photos.present?
+      image_tag(product.photos.first.image.index.url)
+    else
       image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail")
     end
+  end
+
+  def render_expires(product)
+    product.expires.strftime("%Y/%m/%d").to_s unless product.expires.nil? == false || product.expires == ''
   end
 
   def render_cart_items_count(cart)

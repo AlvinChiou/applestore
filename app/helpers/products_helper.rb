@@ -29,6 +29,8 @@ module ProductsHelper
   end
 
   def button_status_by_product(product)
+    # def button_status_by_product(product, options={})
+
     if product.quantity > 0
       case
         when current_page?(root_path) || current_page?('/products')

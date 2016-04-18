@@ -56,7 +56,8 @@
                 <%= c.input :billing_address, label: "配送地址", input_html: {value: show_billing_address(current_user)} %>
               </div>
           <% end %>
-          <div class="col-md-4 col-centered checkout">
+
+          <div class="form-group col-md-offset-4 col-md-4 checkout">
             <%= f.submit "產生訂單", class: "btn btn-lg btn-danger btn-block",
                          data: {disable_with: "Submitting..."} %>
           </div>

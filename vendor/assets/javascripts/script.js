@@ -10,3 +10,11 @@ $("input[name='amount']").TouchSpin({
     max: 10,
     postfix: '組'
 });
+
+$('[data-countdown]').each(function () {
+    var $this = $(this), finalDate = $(this).data('countdown');
+    $this.countdown(finalDate, function (event) {
+        $this.html(event.strftime('優惠截止 %D 天 %-H 時 %M 分 %S 秒'));
+    });
+});
+

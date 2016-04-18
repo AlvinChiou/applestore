@@ -19,6 +19,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   process resize_and_pad: [800, 800]
 
   version :thumb do
+    process resize_and_pad: [110, 78]
+  end
+
+  version :index do
     process resize_and_pad: [200, 200]
   end
 
