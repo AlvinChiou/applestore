@@ -1,14 +1,18 @@
 # applestore
 
-![first](photos/1.png)
+*[ER-Diagram](https://github.com/AlvinChiou/applestore/blob/master/erd.pdf)
 
-![second](photos/2.png)
+## Screen Shots
+---
+![1st](photos/1.png)
 
-![third](photos/3.png)
+![2nd](photos/2.png)
 
-![fourth](photos/4.png)
+![3rd](photos/3.png)
 
-![fifth](photos/5.png)
+![4th](photos/4.png)
+
+![5th](photos/5.png)
 
 ![six](photos/6.png)
 
