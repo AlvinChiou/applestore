@@ -1,6 +1,6 @@
 # applestore
 
-*[ER-Diagram](https://github.com/AlvinChiou/applestore/blob/master/erd.pdf)
+* [ER-Diagram](https://github.com/AlvinChiou/applestore/blob/master/erd.pdf)
 
 ## Screen Shots
 ---
