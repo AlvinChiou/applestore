@@ -9,7 +9,7 @@
 * 提供Facebook帳號登入
 * 缺貨物件可加入許願清單，供賣方參考
 * 彈性的商品敘述，可依據需求彈性調整文案
-
+* 可設定限時優惠，在個別商品頁面顯示倒數計時
 * [ER-Diagram](https://github.com/AlvinChiou/applestore/blob/master/erd.pdf)
 
 ## Screen Shots
