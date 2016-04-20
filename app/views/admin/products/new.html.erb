@@ -86,6 +86,12 @@
     <p><%= f.link_to_add "加入商品圖片", :photos, data: {target: '#photos_list'}, class: "btn btn-success btn-sm" %></p>
 
     <div class="group">
+      <%= f.input :expires, label: "優惠截止日期", wrapper: :vertical_input_group do %>
+          <%= f.text_field :expires, data: {:date_format => 'YYYY/MM/DD hh:mm'}, :class => 'form-control datetimepicker', placeholder: 'YYYY/MM/DD hh:mm:ss' %>
+      <% end %>
+    </div>
+
+    <div class="group">
       <%= f.input :introduction, :as => :ckeditor, :input_html => {:ckeditor => {:toolbar => 'Full'}}, label: "商品介紹" %>
     </div>
 

@@ -18,3 +18,6 @@ $('[data-countdown]').each(function () {
     });
 });
 
+$(function() {
+    return $(".datetimepicker").datetimepicker();
+});

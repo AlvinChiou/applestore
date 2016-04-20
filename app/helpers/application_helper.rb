@@ -36,7 +36,7 @@ module ApplicationHelper
   end
 
   def render_expires(product)
-    product.expires.strftime("%Y/%m/%d").to_s unless product.expires.nil? == false || product.expires == ''
+    product.expires.strftime("%Y/%m/%d").to_s unless product.expires.nil? == true || product.expires == ''
   end
 
   def render_cart_items_count(cart)
