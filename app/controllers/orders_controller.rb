@@ -12,17 +12,7 @@ class OrdersController < ApplicationController
   def create
     @order = current_user.orders.build(order_params)
     if @order.save
-      # OrderPlacingService.new(current_cart, @order, order_params).place_order!
-      @order.build_item_cache_from_cart(current_cart)
-      @order.calculate_total!(current_cart)
-      current_cart.clean!
-      OrderMailer.notify_order_placed(@order).deliver_now!
-
-      billing_name = order_params[:info_attributes][:billing_name]
-      billing_address = order_params[:info_attributes][:billing_address]
-      billing_county_id = order_params[:info_attributes][:billing_county_id]
-      billing_township_id = order_params[:info_attributes][:billing_township_id]
-      update_current_user_data(billing_name, billing_address, billing_county_id, billing_township_id)
+      OrderPlacingService.new(current_cart, @order, order_params).place_order!
       redirect_to order_path(@order.token)
     else
       render "carts/checkout"
@@ -54,7 +44,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  private
+  protected
   def order_params
     params.require(:order).permit(info_attributes: [:billing_name, :billing_address, :billing_county_id,
                                                     :billing_township_id])

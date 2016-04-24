@@ -4,13 +4,9 @@ class Order < ActiveRecord::Base
   belongs_to :township, :foreign_key => 'billing_township_id'
   has_many :items, class_name: "OrderItem", dependent: :destroy
   has_one :info, class_name: "OrderInfo", dependent: :destroy
-
-  before_create :generate_token
   accepts_nested_attributes_for :info
 
-  def generate_token
-    self.token = SecureRandom.uuid
-  end
+  include Tokenable
 
   def build_item_cache_from_cart(cart)
     cart.items.each do |cart_item|

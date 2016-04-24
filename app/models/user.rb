@@ -26,6 +26,12 @@ class User < ActiveRecord::Base
     self.update_columns(is_admin: false)
   end
 
+  def update_current_user_data(billing_name, billing_address, billing_county_id, billing_township_id)
+    self.find_by(id: current_user.id)
+    self.update_columns(billing_name: billing_name, billing_address: billing_address, name:billing_name,
+                        billing_county_id: billing_county_id, billing_township_id: billing_township_id)
+  end
+
   def county
     County.find(self.billing_county_id)
   end

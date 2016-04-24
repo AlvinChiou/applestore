@@ -22,12 +22,6 @@ class ApplicationController < ActionController::Base
     Time.use_zone(current_user.time_zone, &block)
   end
 
-  def update_current_user_data(billing_name, billing_address, billing_county_id, billing_township_id)
-    user = User.find_by(id: current_user.id)
-    user.update_columns(billing_name: billing_name, billing_address: billing_address, name:billing_name,
-                        billing_county_id: billing_county_id, billing_township_id: billing_township_id)
-  end
-
   def add_product_be_wished_count(product, add_wished_count)
     product = Product.find(product.id)
     begin

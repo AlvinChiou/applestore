@@ -30,8 +30,7 @@ body {
   box-sizing: border-box;
 }
 
-
-.product-price-at-index{
+.product-price-at-index {
   padding-top: 0px;
   padding-bottom: 10px;
 
@@ -40,38 +39,38 @@ body {
   color: #ff007c;
 }
 
-.countdown-text{
+.countdown-text {
   color: #c41d43;
 }
 
-.product-original-price{
+.product-original-price {
   padding-top: 10px;
   padding-bottom: 10px;
 
   font-size: 20px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.54);
-  text-decoration:line-through;
+  text-decoration: line-through;
 }
 
-.product-original-price-table{
+.product-original-price-table {
   font-size: 20px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.54);
-  text-decoration:line-through;
+  text-decoration: line-through;
 }
 
-.product-original-price-index{
+.product-original-price-index {
   padding-top: 0px;
   padding-bottom: 0px;
 
   font-size: 15px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.54);
-  text-decoration:line-through;
+  text-decoration: line-through;
 }
 
-.product-price{
+.product-price {
   padding-top: 10px;
   padding-bottom: 10px;
 
@@ -80,44 +79,44 @@ body {
   color: #ff2a45;
 }
 
-.product-price-table{
+.product-price-table {
   font-size: 20px;
   font-weight: bold;
   color: #ff2a45;
 }
 
-.product-price-discount-table{
+.product-price-discount-table {
   font-size: 20px;
   font-weight: bold;
   color: #ff900d;
 }
 
-.facebook-login{
+.facebook-login {
   margin-top: 5px;
 }
 
-.buy-now-area{
+.buy-now-area {
   margin-bottom: 30px;
 }
 
-.buy-now-footer-area{
+.buy-now-footer-area {
   margin-bottom: 50px;
 }
 
-.col-centered{
+.col-centered {
   height: auto;
   float: none;
   margin: 0 auto;
 
 }
 
-.product-shipment-table{
+.product-shipment-table {
   font-size: 20px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.54);
 }
 
-.padding-top-with-nav{
+.padding-top-with-nav {
   padding-top: 30px;
   min-height: 519px;
 }
@@ -141,7 +140,7 @@ body {
   padding-top: 70px;
 }
 
-.clear{
+.clear {
   clear: both;
 }
 
@@ -149,14 +148,15 @@ body {
 .jumbotron {
   margin-bottom: 30px;
   background-image: url("003.jpg");
-  padding: 10em ;
+  padding: 10em;
 }
 
-.sticky-bottom{
+.sticky-bottom {
   position: relative;
   width: 100%;
   bottom: 0;
 }
+
 /* Add a gray background color and some padding to the footer */
 footer {
   background-color: #c41d43;
@@ -164,59 +164,87 @@ footer {
   margin-top: 50px;
 }
 
-#login-dp{
+.footer-font {
+  color: #ffffff;
+}
+
+#login-dp {
   min-width: 250px;
   padding: 14px 14px 0;
-  overflow:hidden;
-  background-color:rgba(255,255,255,.8);
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, .8);
 }
 
-#login-dp .help-block{
-  font-size:12px
+#login-dp .help-block {
+  font-size: 12px
 }
 
-#login-dp .bottom{
-  background-color:rgba(255,255,255,.8);
-  border-top:1px solid #ddd;
-  clear:both;
-  padding:14px;
+#login-dp .bottom {
+  background-color: rgba(255, 255, 255, .8);
+  border-top: 1px solid #ddd;
+  clear: both;
+  padding: 14px;
 }
 
-#login-dp .social-buttons{
-  margin:12px 0
+#login-dp .social-buttons {
+  margin: 12px 0
 }
 
-#login-dp .social-buttons a{
+#login-dp .social-buttons a {
   width: 49%;
 }
+
 #login-dp .form-group {
   margin-bottom: 10px;
 }
-.btn-fb{
+
+.btn-fb {
   color: #fff;
-  background-color:#3b5998;
-}
-.btn-fb:hover{
-  color: #fff;
-  background-color:#496ebc
+  background-color: #3b5998;
 }
 
-.btn-tw{
+.btn-fb:hover {
   color: #fff;
-  background-color:#55acee;
-}
-.btn-tw:hover{
-  color: #fff;
-  background-color:#59b5fa;
+  background-color: #496ebc
 }
 
-@media(max-width:768px){
-  #login-dp{
+.btn-tw {
+  color: #fff;
+  background-color: #55acee;
+}
+
+.btn-tw:hover {
+  color: #fff;
+  background-color: #59b5fa;
+}
+
+.btn-line {
+  color: #FFFFFF;
+  background-color: #00C300;
+}
+
+.btn-line:hover {
+  color: #FFFFFF;
+  background-color: #00E000;
+}
+
+.btn-line:focus {
+  color: #FFFFFF;
+  background-color: #00B300;
+}
+
+.btn-line:disabled{
+  color: #FFFFFF;
+  background-color: #C6C6C6;
+}
+
+@media(max-width: 768px) {
+  #login-dp {
     background-color: inherit;
     color: #fff;
   }
-  #login-dp .bottom{
+  #login-dp .bottom {
     background-color: inherit;
-    border-top:0 none;
+    border-top: 0 none;
   }
 }

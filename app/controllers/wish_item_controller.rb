@@ -12,15 +12,13 @@ class WishItemController < ApplicationController
     @wish_list_item = @wish_list.find_wish_list_item(params[:id])
     @product = @wish_list_item.product
 
-    # be_wished_count = wishes_params[:quantity]
-    # add_product_be_wished_count(@product, be_wished_count)
     @wish_list_item.update(wishes_params)
     update_product_be_wished_count(@product)
-    flash[:notice] = "已更新 #{@product.title} 許願清單數量！"
 
+    flash[:notice] = "已更新 #{@product.title} 許願清單數量！"
     redirect_to wish_list_index_path
   end
-  
+
   private
   def wishes_params
     params.require(:wish_item).permit(:quantity)
